@@ -28,7 +28,7 @@ module.exports = {
         test: /\.s[ca]ss$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          "css-loader?modules&camelCase",
+          "css-loader?modules&camelCase&localIdentName=[hash:base64:5]",
           "sass-loader",
         ],
       },
