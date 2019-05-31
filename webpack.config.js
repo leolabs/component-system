@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
 const fastGlob = require("fast-glob");
@@ -36,7 +37,11 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  plugins: [new MiniCssExtractPlugin("[name].css"), new StyleLintPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin("[name].css"),
+    new OptimizeCssAssetsPlugin(),
+    new StyleLintPlugin(),
+  ],
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
