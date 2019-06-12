@@ -23,6 +23,7 @@ export type Variant =
   | 'form-label'
   | 'heading-1'
   | 'heading-2'
+  | 'ribbon'
   | 'status'
   | 'title'
 ;
@@ -121,6 +122,18 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       line-height: 1.1;
     `,
     element: 'h2',
+  },
+  'ribbon': {
+    className: css`
+      ${baseStyles}
+
+      color: ${neutral[100]};
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 1.2;
+    `,
+    element: 'span',
   },
   'status': {
     className: css`
