@@ -1,6 +1,6 @@
 import React from "react";
-import { Color } from "theme/colors/colors";
-import { ColorCombination } from "theme/color-combinations/color-combinations";
+import { Color, primary } from "../../theme/colors/colors";
+import { ColorCombination } from "../../theme/color-combinations/color-combinations";
 
 interface ThemeProps {
   color?: Color;
@@ -18,7 +18,7 @@ const createVariables = (color: Color) =>
 
 export const Theme: React.FC<ThemeProps> = ({ color, colorCombination, children }) => {
   const style = {
-    ...(color ? createVariables(color) : {}),
+    ...(color ? createVariables(color) : createVariables(primary)),
     ...(colorCombination
       ? { "--color-fg": colorCombination.fg, "--color-bg": colorCombination.bg }
       : {}),

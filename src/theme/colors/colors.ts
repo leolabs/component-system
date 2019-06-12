@@ -88,3 +88,5 @@ export const green: Color = {
   800: "#0E5814",
   900: "#05400A",
 };
+
+export const primary = orange;
