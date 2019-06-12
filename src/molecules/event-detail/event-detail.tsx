@@ -1,12 +1,11 @@
 import { styled } from "linaria/react";
 import React from "react";
-import { Props } from "react-feather";
 
 import { Typography } from "../../atoms/typography/typography";
 
 export interface EventDetailProps {
   color?: string;
-  icon: React.ComponentType<Props>;
+  icon: React.ReactNode;
   primary: React.ReactNode;
   secondary?: React.ReactNode;
 }
@@ -25,14 +24,9 @@ const Column = styled.div`
   margin-left: 0.5rem;
 `;
 
-export const EventDetail: React.FC<EventDetailProps> = ({
-  color,
-  icon: Icon,
-  primary,
-  secondary,
-}) => (
+export const EventDetail: React.FC<EventDetailProps> = ({ color, icon, primary, secondary }) => (
   <Row>
-    <Icon />
+    {icon}
 
     <Column>
       <Typography color={color} variant="detail">

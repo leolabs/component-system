@@ -12,7 +12,7 @@ storiesOf("Molecules / Event Detail", module)
   .add("with both", () => (
     <Theme color={orange}>
       <EventDetail
-        icon={() => <FeatherIcon icon={Clock} />}
+        icon={<FeatherIcon icon={Clock} />}
         primary="Primary Text"
         secondary="Secondary Text"
       />
@@ -20,6 +20,6 @@ storiesOf("Molecules / Event Detail", module)
   ))
   .add("just top", () => (
     <Theme color={orange}>
-      <EventDetail icon={() => <FeatherIcon icon={Clock} />} primary="Primary Text" />
+      <EventDetail icon={<FeatherIcon icon={Clock} />} primary="Primary Text" />
     </Theme>
   ));
