@@ -1,8 +1,10 @@
 import { styled } from "linaria/react";
 import { neutral, primary } from "../../theme/colors/colors";
+import { iconCl } from "../icons/icons";
 
 export interface ButtonProps {
   primary?: boolean;
+  children: Array<React.ReactNode> | React.ReactNode;
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -33,5 +35,18 @@ export const Button = styled.button<ButtonProps>`
   :active {
     background: ${p => (p.primary ? `var(--color-900, ${primary[900]})` : neutral[900])};
     color: ${p => (p.primary ? `var(--color-200, ${primary[200]})` : neutral[200])};
+  }
+
+  .${iconCl}:first-child {
+    margin-left: -0.25rem;
+  }
+
+  .${iconCl}:last-child {
+    margin-right: -0.25rem;
+  }
+
+  > * {
+    margin: 0 0.25rem;
+    display: inline-block;
   }
 `;
