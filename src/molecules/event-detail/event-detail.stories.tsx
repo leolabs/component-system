@@ -9,7 +9,7 @@ import { Theme } from "../../theme/theme-context/theme-context";
 import { EventDetail } from "./event-detail";
 
 storiesOf("Molecules / Event Detail", module)
-  .add("with both", () => (
+  .add("two rows", () => (
     <Theme color={orange}>
       <EventDetail
         icon={<FeatherIcon icon={Clock} />}
@@ -18,7 +18,7 @@ storiesOf("Molecules / Event Detail", module)
       />
     </Theme>
   ))
-  .add("just top", () => (
+  .add("one row", () => (
     <Theme color={orange}>
       <EventDetail icon={<FeatherIcon icon={Clock} />} primary="Primary Text" />
     </Theme>

@@ -13,7 +13,7 @@ const size = css`
   width: 256px;
 `;
 
-storiesOf("Molecules / Jumbo", module).add("base", () => (
+storiesOf("Molecules / Jumbo", module).add("default", () => (
   <Theme color={orange}>
     <Jumbo background="https://source.unsplash.com/zGzXsJUBQfs/512x256" className={size}>
       <Typography variant="heading-2">Jumbo Header</Typography>
