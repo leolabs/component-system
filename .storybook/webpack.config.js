@@ -5,7 +5,7 @@ module.exports = ({ config }) => {
       {
         loader: "linaria/loader",
         options: {
-          sourceMap: process.env.NODE_ENV !== "production",
+          sourceMap: true,
         },
       },
       {
@@ -16,10 +16,6 @@ module.exports = ({ config }) => {
       },
     ],
   });
-  /*config.module.rules.push({
-    test: /\.css$/,
-    use: ["style-loader", "css-loader"],
-  });*/
   config.resolve.extensions.push(".ts", ".tsx");
   return config;
 };
