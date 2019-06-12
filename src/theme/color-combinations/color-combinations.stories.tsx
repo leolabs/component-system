@@ -10,6 +10,7 @@ const ColorCombination = styled.div<{ backgroundColor: string }>`
   justify-content: center;
   width: 64px;
   height: 64px;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: ${p => p.backgroundColor};
   overflow: hidden;
