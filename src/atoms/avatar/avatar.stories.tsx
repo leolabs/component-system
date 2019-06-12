@@ -6,7 +6,7 @@ import { Theme } from "../../theme/theme-context/theme-context";
 
 import { Avatar, Status } from "./avatar";
 
-storiesOf("Avatar", module)
+storiesOf("Atoms / Avatar", module)
   .add("with image", () => (
     <Theme color={orange}>
       {["not-sent", "sent", "accepted", "maybe", "declined"].map((status: Status) => (
