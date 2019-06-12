@@ -1,7 +1,7 @@
-import { css, CSSProperties } from 'linaria';
-import React, { ReactHTML } from 'react';
+import { css, CSSProperties } from "linaria";
+import React, { ReactHTML } from "react";
 
-import { neutral } from '../../theme/colors/colors';
+import { neutral } from "../../theme/colors/colors";
 
 export interface TypographyProps {
   children?: React.ReactNode;
@@ -11,25 +11,25 @@ export interface TypographyProps {
 }
 
 export interface TypographyDefinition {
-  className: string,
+  className: string;
   element: keyof ReactHTML;
 }
 
 export type Variant =
-  | 'body-1'
-  | 'body-2'
-  | 'button'
-  | 'detail'
-  | 'form-label'
-  | 'heading-1'
-  | 'heading-2'
-  | 'ribbon'
-  | 'status'
-  | 'title'
-;
+  | "body-1"
+  | "body-2"
+  | "button"
+  | "detail"
+  | "form-label"
+  | "heading-1"
+  | "heading-2"
+  | "ribbon"
+  | "status"
+  | "title";
 
 const baseStyles = {
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   margin: 0,
 };
 
@@ -40,11 +40,11 @@ const baseNeutral: CSSProperties = {
 
 const basePrimary: CSSProperties = {
   ...baseStyles,
-  color: 'var(--color-500)',
+  color: "var(--color-500)",
 };
 
 export const definitions: Record<Variant, TypographyDefinition> = {
-  'body-1': {
+  "body-1": {
     className: css`
       ${baseNeutral}
 
@@ -53,9 +53,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0px;
       line-height: 1.2;
     `,
-    element: 'span',
+    element: "span",
   },
-  'body-2': {
+  "body-2": {
     className: css`
       ${baseNeutral}
 
@@ -64,9 +64,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0;
       line-height: 1.2;
     `,
-    element: 'span',
+    element: "span",
   },
-  'button': {
+  button: {
     className: css`
       ${baseStyles}
 
@@ -77,9 +77,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       line-height: 1.2;
       text-transform: uppercase;
     `,
-    element: 'span',
+    element: "span",
   },
-  'detail': {
+  detail: {
     className: css`
       ${baseStyles}
 
@@ -88,9 +88,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0;
       line-height: 1.2;
     `,
-    element: 'span',
+    element: "span",
   },
-  'form-label': {
+  "form-label": {
     className: css`
       ${baseNeutral}
 
@@ -99,9 +99,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0px;
       line-height: 1.2;
     `,
-    element: 'label',
+    element: "label",
   },
-  'heading-1': {
+  "heading-1": {
     className: css`
       ${basePrimary}
 
@@ -110,9 +110,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0;
       line-height: 1;
     `,
-    element: 'h2',
+    element: "h2",
   },
-  'heading-2': {
+  "heading-2": {
     className: css`
       ${basePrimary}
 
@@ -121,9 +121,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0;
       line-height: 1.1;
     `,
-    element: 'h2',
+    element: "h2",
   },
-  'ribbon': {
+  ribbon: {
     className: css`
       ${baseStyles}
 
@@ -133,9 +133,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0;
       line-height: 1.2;
     `,
-    element: 'span',
+    element: "span",
   },
-  'status': {
+  status: {
     className: css`
       ${baseNeutral}
 
@@ -145,9 +145,9 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       line-height: 1.2;
       text-transform: uppercase;
     `,
-    element: 'span',
+    element: "span",
   },
-  'title': {
+  title: {
     className: css`
       ${basePrimary}
 
@@ -156,7 +156,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0;
       line-height: 1.2;
     `,
-    element: 'h2',
+    element: "h2",
   },
 };
 
