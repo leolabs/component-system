@@ -74,6 +74,7 @@ const disabled = css`
   }
 `;
 
-export const Button = (props: ButtonProps) => (
-  <StyledButton className={props.disabled ? disabled : ""} {...props} />
-);
+export const Button = (
+  props: ButtonProps &
+    React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
+) => <StyledButton className={props.disabled ? disabled : ""} {...props} />;
