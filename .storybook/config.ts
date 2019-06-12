@@ -1,5 +1,6 @@
-import { configure, addParameters } from "@storybook/react";
+import { configure, addParameters, addDecorator } from "@storybook/react";
 import { create } from "@storybook/theming";
+import { withKnobs } from '@storybook/addon-knobs';
 
 addParameters({
   options: {
@@ -9,6 +10,8 @@ addParameters({
     }),
   },
 });
+
+addDecorator(withKnobs)
 
 // automatically import all files ending in *.stories.tsx
 const req = require.context("../src", true, /\.stories\.tsx$/);
