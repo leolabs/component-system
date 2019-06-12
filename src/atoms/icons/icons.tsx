@@ -13,7 +13,13 @@ export const iconCl = css`
 export const FontAwesomeIcon: React.FC<{ icon: IconDefinition } & ComponentProps<"svg">> = ({
   icon,
 }) => (
-  <svg className={iconCl} viewBox={`0 0 ${icon.icon[0]} ${icon.icon[1]}`}>
+  <svg
+    className={iconCl}
+    viewBox={`0 0 ${icon.icon[0]} ${icon.icon[1]}`}
+    width={Math.max(icon.icon[0], icon.icon[1])}
+    height={Math.max(icon.icon[0], icon.icon[1])}
+    preserveAspectRatio="xMidYMid"
+  >
     <path fill="currentColor" d={icon.icon[4]} />
   </svg>
 );
