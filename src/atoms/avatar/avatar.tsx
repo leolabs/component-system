@@ -1,6 +1,8 @@
 import React from "react";
 import { styled } from "linaria/react";
 
+import { neutral } from "../../theme/colors/colors";
+
 export interface AvatarProps {
   image?: string | null;
   name: string;
@@ -38,6 +40,7 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.img`
+  background-color: ${neutral[100]};
   border-radius: 1.25rem;
 
   display: block;
