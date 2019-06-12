@@ -10,6 +10,7 @@ import { Typography } from "../typography/typography";
 storiesOf("Atoms / Button", module)
   .add("default", () => <Button>{text("content", "Click me!")}</Button>)
   .add("primary", () => <Button primary>{text("content", "Click me!")}</Button>)
+  .add("disabled", () => <Button disabled>{text("content", "Click me!")}</Button>)
   .add("custom color", () => (
     <>
       <Button color="green">

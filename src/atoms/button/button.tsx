@@ -1,12 +1,15 @@
+import React from "react";
 import { styled } from "linaria/react";
 import * as colors from "../../theme/colors/colors";
 import { iconCl } from "../icons/icons";
 import { Color } from "../../theme/colors/colors";
+import { css } from "linaria";
 
 const { neutral, primary } = colors;
 
 export interface ButtonProps {
   primary?: boolean;
+  disabled?: boolean;
   color?: keyof typeof colors;
   children: Array<React.ReactNode> | React.ReactNode;
 }
@@ -18,7 +21,7 @@ const selectColor = (variant: keyof Color) => (props: ButtonProps) =>
     ? colors[props.color][variant]
     : neutral[variant];
 
-export const Button = styled.button<ButtonProps>`
+const StyledButton = styled.button<ButtonProps & { className: string }>`
   /* theming */
   background: ${selectColor(100)};
   color: ${selectColor(900)};
@@ -60,3 +63,17 @@ export const Button = styled.button<ButtonProps>`
     display: inline-block;
   }
 `;
+
+const disabled = css`
+  &,
+  &:hover,
+  &:active {
+    color: ${neutral[400]};
+    background: ${neutral[800]};
+    cursor: not-allowed;
+  }
+`;
+
+export const Button = (props: ButtonProps) => (
+  <StyledButton className={props.disabled ? disabled : ""} {...props} />
+);
