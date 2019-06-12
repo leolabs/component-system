@@ -3,16 +3,13 @@ module.exports = ({ config }) => {
     test: /\.(ts|tsx)$/,
     use: [
       {
+        loader: require.resolve("babel-loader"),
+      },
+      {
         loader: "linaria/loader",
         options: {
           sourceMap: true,
         },
-      },
-      {
-        loader: require.resolve("awesome-typescript-loader"),
-      },
-      {
-        loader: require.resolve("react-docgen-typescript-loader"),
       },
     ],
   });

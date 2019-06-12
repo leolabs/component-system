@@ -4,5 +4,6 @@
     "@babel/preset-typescript",
     "@babel/preset-react",
     "linaria/babel"
-  ]
+  ],
+  "plugins": ["babel-plugin-typescript-to-proptypes"]
 }
