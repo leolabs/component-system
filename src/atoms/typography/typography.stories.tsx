@@ -20,7 +20,7 @@ storiesOf("Atoms / Typography", module).add("variants", () => (
       "title",
     ].map((variant: Variant) => (
       <div style={{ marginBottom: 16 }}>
-        <Typography variant={variant}>This is some text!</Typography>
+        <Typography variant={variant}>{variant}</Typography>
       </div>
     ))}
   </Theme>
