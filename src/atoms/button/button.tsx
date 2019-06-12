@@ -1,16 +1,27 @@
 import { styled } from "linaria/react";
-import { neutral, primary } from "../../theme/colors/colors";
+import * as colors from "../../theme/colors/colors";
 import { iconCl } from "../icons/icons";
+import { Color } from "../../theme/colors/colors";
+
+const { neutral, primary } = colors;
 
 export interface ButtonProps {
   primary?: boolean;
+  color?: keyof typeof colors;
   children: Array<React.ReactNode> | React.ReactNode;
 }
 
+const selectColor = (variant: keyof Color) => (props: ButtonProps) =>
+  props.primary
+    ? `var(--color-${variant}, ${primary[variant]})`
+    : props.color
+    ? colors[props.color][variant]
+    : neutral[variant];
+
 export const Button = styled.button<ButtonProps>`
   /* theming */
-  background: ${p => (p.primary ? `var(--color-100, ${primary[100]})` : neutral[100])};
-  color: ${p => (p.primary ? `var(--color-900, ${primary[900]})` : neutral[900])};
+  background: ${selectColor(100)};
+  color: ${selectColor(900)};
 
   /* resets */
   border: none;
@@ -29,12 +40,12 @@ export const Button = styled.button<ButtonProps>`
   transition: background-color 0.4s, color 0.4s;
 
   :hover {
-    background: ${p => (p.primary ? `var(--color-200, ${primary[200]})` : neutral[200])};
+    background: ${selectColor(200)};
   }
 
   :active {
-    background: ${p => (p.primary ? `var(--color-900, ${primary[900]})` : neutral[900])};
-    color: ${p => (p.primary ? `var(--color-200, ${primary[200]})` : neutral[200])};
+    background: ${selectColor(900)};
+    color: ${selectColor(200)};
   }
 
   .${iconCl}:first-child {
