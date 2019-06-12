@@ -10,7 +10,7 @@ storiesOf("Atoms / Ribbon", module).add("default", () => (
   <Theme color={orange}>
     <div
       style={{
-        backgroundColor: "blue",
+        backgroundColor: "#ccc",
         width: 200,
         height: 200,
         position: "relative",
