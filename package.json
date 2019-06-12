@@ -35,7 +35,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepublishOnly": "webpack",
-    "build": "webpack"
+    "prepublishOnly": "yarn build",
+    "build": "rollup -c"
   }
 }
