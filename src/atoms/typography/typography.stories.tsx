@@ -6,7 +6,7 @@ import { Theme } from "../../theme/theme-context/theme-context";
 
 import { Typography, Variant } from "./typography";
 
-storiesOf("Typography", module).add("variants", () => (
+storiesOf("Atoms / Typography", module).add("variants", () => (
   <Theme color={orange}>
     {[
       "body-1",
