@@ -8,5 +8,6 @@ export default {
     format: "esm",
     file: `dist/index.js`,
   },
+  external: id => !id.startsWith(".") && !id.startsWith("/"),
   plugins: [typescript(), linaria(), css()],
 };
