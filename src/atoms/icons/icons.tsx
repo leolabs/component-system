@@ -1,5 +1,6 @@
-import React from "react";
-import * as FeatherIcons from "react-feather";
+import React, { ComponentProps } from "react";
+import { Icon as Feather, Props as FeatherProps } from "react-feather";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { css } from "linaria";
 
 export const iconCl = css`
@@ -9,13 +10,15 @@ export const iconCl = css`
   vertical-align: top;
 `;
 
-export type IconMap = typeof FeatherIcons;
-
-export const Icons: IconMap = Object.entries(FeatherIcons).reduce(
-  (out, [name, Icon]) => {
-    out[name] = (props: FeatherIcons.Props) => <Icon size="" {...props} className={iconCl} />;
-    return out;
-  },
-  {} as IconMap,
+export const FontAwesomeIcon: React.FC<{ icon: IconDefinition } & ComponentProps<"svg">> = ({
+  icon,
+}) => (
+  <svg className={iconCl} viewBox={`0 0 ${icon.icon[0]} ${icon.icon[1]}`}>
+    <path fill="currentColor" d={icon.icon[4]} />
+  </svg>
 );
-export default FeatherIcons;
+
+export const FeatherIcon: React.FC<{ icon: Feather } & FeatherProps> = ({
+  icon: Icon,
+  ...props
+}) => <Icon size="" {...props} className={iconCl} />;
