@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/react";
 import React from "react";
 
 import { orange } from "../../theme/colors/colors";
-import { Theme } from "../../theme/theme/theme";
+import { Theme } from "../../theme/theme-context/theme-context";
 
 import { Avatar, Status } from "./avatar";
 
