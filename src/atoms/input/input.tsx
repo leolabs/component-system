@@ -31,11 +31,11 @@ const StyledInput = styled.input<InputProps>`
   }
 
   :hover {
-    box-shadow: 0 0 0 0.09rem inset var(--primary-100, ${orange[100]});
+    box-shadow: 0 0 0 0.09rem inset var(--color-100, ${orange[100]});
   }
 
   :focus {
-    box-shadow: 0 0 0 0.09rem inset var(--primary-300, ${orange[300]});
+    box-shadow: 0 0 0 0.09rem inset var(--color-300, ${orange[300]});
   }
 `;
 
