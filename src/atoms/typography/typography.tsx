@@ -85,6 +85,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
 
       color: var(--color-900);
       font-size: 1rem;
+      font-weight: bold;
       letter-spacing: 0;
       line-height: 1.2;
     `,
