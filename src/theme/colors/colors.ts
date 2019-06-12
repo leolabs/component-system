@@ -89,4 +89,30 @@ export const green: Color = {
   900: "#05400A",
 };
 
+export const lightBlue: Color = {
+  50: "#EBF8FF",
+  100: "#D1EEFC",
+  200: "#A7D8F0",
+  300: "#7CC1E4",
+  400: "#55AAD4",
+  500: "#3994C1",
+  600: "#2D83AE",
+  700: "#1D6F98",
+  800: "#166086",
+  900: "#0B4F71",
+};
+
+export const cyan: Color = {
+  50: "#E0FCFF",
+  100: "#BEF8FD",
+  200: "#87EAF2",
+  300: "#54D1DB",
+  400: "#38BEC9",
+  500: "#2CB1BC",
+  600: "#14919B",
+  700: "#0E7C86",
+  800: "#0A6C74",
+  900: "#044E54",
+};
+
 export const primary = orange;

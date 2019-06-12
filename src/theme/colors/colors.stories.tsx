@@ -27,6 +27,27 @@ const Color = styled.div<{ color: string }>`
   }
 `;
 
+const ColorCombination = styled.div<{ backgroundColor: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: ${p => p.backgroundColor};
+  overflow: hidden;
+`;
+
+const ForegroundColor = styled.div<{ color: string }>`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: ${p => p.color};
+`;
+
 storiesOf("Theme / Colors", module).add("Color Swatches", () => (
   <>
     {Object.keys(colors).map(c => (
@@ -36,6 +57,13 @@ storiesOf("Theme / Colors", module).add("Color Swatches", () => (
           {Object.keys(colors[c]).map(color => (
             <Color color={colors[c][color]}>{color}</Color>
           ))}
+          <ColorCombination backgroundColor={colors[c][100]}>
+            <ForegroundColor color={colors[c][900]} />
+          </ColorCombination>
+
+          <ColorCombination backgroundColor={colors[c][100]}>
+            <ForegroundColor color={colors[c][500]} />
+          </ColorCombination>
         </Colors>
       </div>
     ))}
