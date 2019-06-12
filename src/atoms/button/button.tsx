@@ -30,7 +30,6 @@ export const Button = styled.button<ButtonProps>`
   display: block;
 
   font-size: 1rem;
-  font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   cursor: pointer;
