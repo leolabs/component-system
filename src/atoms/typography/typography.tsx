@@ -127,7 +127,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
     className: css`
       ${baseStyles}
 
-      color: ${neutral[100]};
+      color: white;
       font-size: 1rem;
       font-weight: bold;
       letter-spacing: 0;
