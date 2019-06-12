@@ -6,4 +6,4 @@ import { flexColumn } from "../../stories/helpers";
 
 storiesOf("Atoms / Primary Input", module)
   .addDecorator(flexColumn)
-  .add("base", () => <PrimaryInput placeholder="Placeholder" />);
+  .add("default", () => <PrimaryInput placeholder="Placeholder" />);

@@ -6,7 +6,7 @@ import { Theme } from "../../theme/theme-context/theme-context";
 
 import { Ribbon } from "./ribbon";
 
-storiesOf("Atoms / Ribbon", module).add("base", () => (
+storiesOf("Atoms / Ribbon", module).add("default", () => (
   <Theme color={orange}>
     <div
       style={{
