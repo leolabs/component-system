@@ -21,10 +21,7 @@ storiesOf("Avatar", module)
   .add("without image", () => (
     <Theme color={orange}>
       {["not-sent", "sent", "accepted", "maybe", "declined"].map((status: Status) => (
-        <Avatar
-          name="Frank Underwood"
-          status={status}
-        />
+        <Avatar name="Frank Underwood" status={status} />
       ))}
     </Theme>
   ));
