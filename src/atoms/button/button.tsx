@@ -1,10 +1,9 @@
-import React from "react";
-import classNames from "classnames";
+import { styled } from "linaria/react";
 
-import styles from "./button.module.scss";
+export interface ButtonProps {
+  primary?: boolean;
+}
 
-export interface ButtonProps {}
-
-export const Button: React.FC<ButtonProps> = ({ children }) => (
-  <button className={classNames(styles.button)}>{children}</button>
-);
+export const Button = styled.button<ButtonProps>`
+  background: ${p => (p.primary ? "red" : "green")};
+`;

@@ -1,4 +1,6 @@
 node_modules/
 dist/
+.linaria-cache/
+.rpt2_cache/
 
 yarn-error.log
