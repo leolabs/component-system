@@ -1,24 +1,21 @@
 import React from "react";
 import { styled } from "linaria/react";
-import * as colors from "../../theme/colors/colors";
+import { Color, primary, neutral } from "../../theme/colors/colors";
 import { iconCl } from "../icons/icons";
-import { Color } from "../../theme/colors/colors";
 import { css } from "linaria";
-
-const { neutral, primary } = colors;
 
 export interface ButtonProps {
   primary?: boolean;
   disabled?: boolean;
-  color?: keyof typeof colors;
-  children: Array<React.ReactNode> | React.ReactNode;
+  color?: Color;
+  children?: Array<React.ReactNode> | React.ReactNode;
 }
 
-const selectColor = (variant: keyof Color) => (props: ButtonProps) =>
+const selectColor = (variant: number) => (props: ButtonProps) =>
   props.primary
     ? `var(--color-${variant}, ${primary[variant]})`
     : props.color
-    ? colors[props.color][variant]
+    ? props.color[variant]
     : neutral[variant];
 
 const StyledButton = styled.button<ButtonProps & { className: string }>`
@@ -30,14 +27,17 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   border: none;
   outline-style: none;
   -webkit-appearance: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  padding: 0 1rem;
+  border-radius: 2rem;
   cursor: pointer;
 
   margin: 0.5rem 0;
+  height: 2.5rem;
 
   transition: background-color 0.4s, color 0.4s;
 
@@ -68,13 +68,12 @@ const disabled = css`
   &,
   &:hover,
   &:active {
-    color: ${neutral[400]};
-    background: ${neutral[800]};
+    color: ${neutral[200]};
+    background: ${neutral[50]};
     cursor: not-allowed;
   }
 `;
 
-export const Button = (
-  props: ButtonProps &
-    React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
-) => <StyledButton {...props} className={props.disabled ? disabled : ""} />;
+export const Button = (props: ButtonProps & Omit<React.ComponentProps<"button">, "color">) => (
+  <StyledButton {...props} className={props.disabled ? disabled : ""} />
+);
