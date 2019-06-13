@@ -10,6 +10,7 @@ export interface ButtonProps {
   children?: Array<React.ReactNode> | React.ReactNode;
   color?: Color;
   disabled?: boolean;
+  noBackground?: boolean;
   primary?: boolean;
   selected?: boolean;
 }
@@ -23,8 +24,8 @@ const selectColor = (variant: number) => (props: ButtonProps) =>
 
 const StyledButton = styled.button<ButtonProps & { className: string }>`
   /* theming */
-  background: ${selectColor(100)};
-  color: ${selectColor(900)};
+  background: ${p => (p.noBackground ? "none" : selectColor(100)(p))};
+  color: ${p => (p.noBackground ? selectColor(500) : selectColor(100))(p)};
 
   /* resets */
   border: none;
@@ -67,7 +68,7 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   }
 
   :hover {
-    background: ${selectColor(200)};
+    background: ${p => (p.noBackground ? selectColor(50) : selectColor(200))(p)};
   }
 
   :active {
@@ -103,6 +104,18 @@ const disabled = css`
   }
 `;
 
+const noBackgroundDisabled = css`
+  &,
+  &:hover,
+  &:active {
+    color: ${neutral[200]};
+    cursor: not-allowed;
+  }
+`;
+
 export const Button = (props: ButtonProps & Omit<React.ComponentProps<"button">, "color">) => (
-  <StyledButton {...props} className={cx(props.disabled && disabled)} />
+  <StyledButton
+    {...props}
+    className={cx(props.disabled ? (props.noBackground ? noBackgroundDisabled : disabled) : null)}
+  />
 );
