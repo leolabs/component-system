@@ -25,7 +25,7 @@ const selectColor = (variant: number) => (props: ButtonProps) =>
 const StyledButton = styled.button<ButtonProps & { className: string }>`
   /* theming */
   background: ${p => (p.noBackground ? "none" : selectColor(100)(p))};
-  color: ${p => (p.noBackground ? selectColor(500) : selectColor(100))(p)};
+  color: ${p => (p.noBackground ? selectColor(500) : selectColor(800))(p)};
 
   /* resets */
   border: none;
