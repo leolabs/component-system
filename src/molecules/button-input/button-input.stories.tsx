@@ -7,6 +7,8 @@ import { orange } from "../../theme/colors/colors";
 import { Theme } from "../../theme/theme-context/theme-context";
 
 import { ButtonInput } from "./button-input";
+import { text } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
 
 const Input = ({ disabled }) => {
   const [value, setValue] = useState("");
@@ -14,6 +16,7 @@ const Input = ({ disabled }) => {
   const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
     setValue("");
+    action("submit")(ev);
   };
 
   return (
@@ -21,8 +24,9 @@ const Input = ({ disabled }) => {
       color={orange}
       disabled={disabled}
       icon={<FeatherIcon icon={CheckCircle} />}
-      placeholder="Type something here..."
+      placeholder={text("placeholder", "Type something here...")}
       value={value}
+      canSubmit={value !== ""}
       onChange={handleChange}
       onSubmit={handleSubmit}
     />
