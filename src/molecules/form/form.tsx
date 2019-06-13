@@ -3,7 +3,7 @@ import { IconNode } from "../../atoms/icons/icons";
 import { styled } from "linaria/react";
 import { Typography } from "../../atoms/typography/typography";
 import { primary } from "../../theme/colors/colors";
-import { cx } from "linaria";
+import { cx, css } from "linaria";
 
 export interface FormFieldProps {
   label?: string;
@@ -15,11 +15,6 @@ const Base = styled.label<FormFieldProps & React.ComponentProps<"label">>`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
-  > * {
-    margin: 0;
-    flex: 1;
-  }
 `;
 
 const IconWrapper = styled.span`
@@ -30,14 +25,25 @@ const IconWrapper = styled.span`
   color: var(--color-300, ${primary[300]});
 `;
 
-const InputWrapper = styled.span<FormFieldProps>`
-  min-width: ${p => (p.inline ? "10rem" : "calc(100% - 1rem)")};
-  flex-basis: 0;
-  flex-shrink: 1;
-  margin-top: ${p => (p.inline ? "0" : "0.5rem")};
+const InputWrapper = styled.span<FormFieldProps & { className: string }>`
+  margin-left: auto;
 
+  flex-grow: 1;
+  flex-basis: 0;
   display: flex;
+  justify-content: flex-end;
+  white-space: nowrap;
+`;
+
+const nonInlineInputs = css`
+  min-width: calc(100% - 1rem);
+  margin-top: 1rem;
   flex-direction: column;
+  justify-content: flex-start;
+`;
+
+const labelStyle = css`
+  margin-right: 1rem;
 `;
 
 export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
@@ -49,10 +55,12 @@ export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
   return (
     <Base inline={inline} className={cx(!inline && "block")}>
       <IconWrapper>{icon}</IconWrapper>
-      <Typography as="span" variant="label">
+      <Typography as="span" variant="label" className={labelStyle}>
         {label}
       </Typography>
-      <InputWrapper inline={inline}>{children}</InputWrapper>
+      <InputWrapper className={!inline ? nonInlineInputs : ""} inline={inline}>
+        {children}
+      </InputWrapper>
     </Base>
   );
 };

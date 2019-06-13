@@ -15,7 +15,7 @@ export interface DatetimePickerProps {
 const Base = styled.div`
   display: inline-flex;
   color: ${neutral[800]};
-  min-width: 200px;
+  width: 12rem;
 `;
 
 const Display = styled.label<{ className?: string; type?: "date" | "time" }>`
