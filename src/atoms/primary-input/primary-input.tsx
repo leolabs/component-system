@@ -1,5 +1,6 @@
 import { styled } from "linaria/react";
 import { neutral, primary } from "../../theme/colors/colors";
+import { shortTime } from "../../theme/timing/timing";
 
 export const PrimaryInput = styled.input`
   display: block;
@@ -11,7 +12,7 @@ export const PrimaryInput = styled.input`
   border-bottom: 2px solid ${neutral[100]};
   outline: none;
 
-  transition: border-color 0.4s;
+  transition: border-color ${shortTime};
 
   ::placeholder {
     color: ${neutral[300]};

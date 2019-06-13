@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "linaria/react";
 import { Color, primary, neutral } from "../../theme/colors/colors";
+import { shortTime } from "../../theme/timing/timing";
 import { iconCl } from "../icons/icons";
 import { css } from "linaria";
 
@@ -39,7 +40,7 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   margin: 0.5rem 0;
   height: 2.5rem;
 
-  transition: background-color 0.4s, color 0.4s;
+  transition: background-color ${shortTime}, color ${shortTime};
 
   :hover {
     background: ${selectColor(200)};

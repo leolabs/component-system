@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "linaria/react";
 import { neutral, orange } from "../../theme/colors/colors";
+import { shortTime } from "../../theme/timing/timing";
 import { css } from "linaria";
 
 export interface InputProps extends Partial<HTMLInputElement> {
@@ -22,7 +23,7 @@ const StyledInput = styled.input<InputProps>`
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   box-shadow: 0 0 0 0.09rem inset ${neutral[200]};
-  transition: box-shadow 0.4s;
+  transition: box-shadow ${shortTime};
 
   margin: 0.125rem 0;
 

@@ -2,6 +2,7 @@ import React from "react";
 import c from "color";
 import { styled } from "linaria/react";
 import { Color } from "../../theme/colors/colors";
+import { shortTime } from "../../theme/timing/timing";
 import { iconCl } from "../icons/icons";
 import { ResponsiveAspect } from "../../layout/responsive-aspect/responsive-aspect";
 
@@ -17,7 +18,7 @@ const TemplateIconInner = styled.div<{ selected?: boolean; color: Color }>`
   right: 0;
   border-radius: 0.5rem;
 
-  transition: box-shadow 0.4s;
+  transition: box-shadow ${shortTime};
   box-shadow: ${p =>
     p.selected
       ? `0 3px 6px ${c(p.color[600]).alpha(0.16)}, 0 3px 6px ${c(p.color[600]).alpha(0.23)}`
