@@ -23,6 +23,8 @@ const Bottom = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
+
+  margin-top: 1rem;
 `;
 
 export const Rsvp: React.SFC<RsvpProps> = ({ onChange, value }) => {
