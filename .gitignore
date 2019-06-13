@@ -2,5 +2,6 @@ node_modules/
 dist/
 .linaria-cache/
 .rpt2_cache/
+.netlify/
 
 yarn-error.log

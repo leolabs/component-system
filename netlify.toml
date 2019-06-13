@@ -1,0 +1,4 @@
+[dev]
+  command = "yarn start-storybook -p 6007 --quiet --ci" # Command to start your dev server
+  port = 6007 # Port that the dev server will be listening on
+  publish = "dist" # If you use a _redirect file, provide the path to your static content folder
