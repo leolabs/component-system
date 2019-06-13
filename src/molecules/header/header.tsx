@@ -18,6 +18,8 @@ const StyledHeader = styled.header`
   right: 0;
   height: 4rem;
 
+  z-index: 1000;
+
   > :first-child {
     margin-right: auto;
   }
