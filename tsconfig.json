@@ -7,7 +7,6 @@
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
-    "baseUrl": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
