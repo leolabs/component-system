@@ -1,12 +1,15 @@
 import { css, CSSProperties } from "linaria";
 import React, { ReactHTML } from "react";
+import classNames from "classnames";
 
 import { neutral } from "../../theme/colors/colors";
 
 export interface TypographyProps {
   children?: React.ReactNode;
+  className?: string;
   color?: string;
   element?: React.ComponentType<{ className?: string }> | keyof ReactHTML;
+  style?: any;
   variant: Variant;
 }
 
@@ -69,7 +72,6 @@ export const definitions: Record<Variant, TypographyDefinition> = {
     className: css`
       ${baseStyles}
 
-      color: var(--color-900);
       font-size: 1rem;
       font-weight: semibold;
       letter-spacing: 0;
@@ -155,6 +157,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       letter-spacing: 0;
       line-height: 1.2;
       text-transform: uppercase;
+      font-variant-numeric: tabular-nums;
     `,
     element: "span",
   },
@@ -173,6 +176,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
 
 export const Typography: React.SFC<TypographyProps> = ({
   children,
+  className,
   color,
   element,
   variant,
@@ -180,13 +184,14 @@ export const Typography: React.SFC<TypographyProps> = ({
 }) => {
   const definition = definitions[variant];
   if (!definition) {
-    throw new Error("Missing typography definition.");
+    throw new Error(`Missing typography definition for ${variant}.`);
   }
 
   const props: any = {
     ...rest,
-    className: definition.className,
+    className: classNames(definition.className, className),
   };
+
   if (color) {
     props.style = { ...props.style, color };
   }

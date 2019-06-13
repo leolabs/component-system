@@ -40,6 +40,8 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   margin: 0.5rem 0;
   height: 2.5rem;
 
+  text-transform: uppercase;
+
   transition: background-color ${shortTime}, color ${shortTime};
 
   :hover {
@@ -47,8 +49,7 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   }
 
   :active {
-    background: ${selectColor(900)};
-    color: ${selectColor(200)};
+    filter: brightness(90%);
   }
 
   .${iconCl}:first-child {
@@ -57,6 +58,11 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
 
   .${iconCl}:last-child {
     margin-right: -0.25rem;
+  }
+
+  .${iconCl}:only-child {
+    margin-left: -0.35rem;
+    margin-right: -0.35rem;
   }
 
   > * {
