@@ -3,5 +3,6 @@ dist/
 .linaria-cache/
 .rpt2_cache/
 .netlify/
+storybook-static/
 
 yarn-error.log
