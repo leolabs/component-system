@@ -6,6 +6,7 @@ import { Button } from "../../atoms/button/button";
 import { FeatherIcon } from "../../atoms/icons/icons";
 import { Trash, Share } from "react-feather";
 import { ListItem } from "../../layout/list/list";
+import { neutral } from "../../theme/colors/colors";
 
 export interface UserData {
   id: string;
@@ -36,8 +37,12 @@ export const User: React.SFC<UserProps> = ({ data, onDelete, onShare }) => {
     <Base>
       <Avatar {...data} />
       <Detail>
-        <Typography variant="detail">{data.name}</Typography>
-        <Typography variant="body-2">{data.status}</Typography>
+        <Typography variant="detail" color={neutral[900]}>
+          {data.name}
+        </Typography>
+        <Typography variant="body-2" color={neutral[400]}>
+          {data.status}
+        </Typography>
       </Detail>
       <Button noBackground onClick={onDelete}>
         <FeatherIcon icon={Trash} />
