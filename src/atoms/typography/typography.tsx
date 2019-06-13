@@ -23,7 +23,7 @@ export type Variant =
   | "body-2"
   | "button"
   | "detail"
-  | "form-label"
+  | "label"
   | "heading-1"
   | "heading-2"
   | "heading-jumbo"
@@ -92,7 +92,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
     `,
     element: "span",
   },
-  "form-label": {
+  label: {
     className: css`
       ${baseNeutral}
 

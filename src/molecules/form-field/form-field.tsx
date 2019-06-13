@@ -46,7 +46,7 @@ export const FormField: React.SFC<FormFieldProps> = ({ label, icon, inline = fal
   return (
     <Base inline={inline}>
       <IconWrapper>{icon}</IconWrapper>
-      <Typography as="span" variant="form-label">
+      <Typography as="span" variant="label">
         {label}
       </Typography>
       <InputWrapper inline={inline}>{children}</InputWrapper>
