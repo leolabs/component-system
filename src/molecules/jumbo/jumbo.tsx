@@ -9,6 +9,7 @@ export interface JumboProps {
 
 const Base = styled.div`
   box-sizing: border-box;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
