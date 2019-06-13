@@ -86,12 +86,14 @@ const unsupported = css`
   }
 `;
 
-const PseudoPick: React.SFC<{
+export interface PseudoPickProps {
   value: string;
   repr: string;
   type: "date" | "time";
   onChange?: (e: ChangeEvent) => void;
-}> = ({ value, repr, type, onChange }) => {
+}
+
+const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange }) => {
   const supported = useMemo(() => supportsInputType(type), [type]);
 
   const [tempValue, setTempValue] = useState(value);
