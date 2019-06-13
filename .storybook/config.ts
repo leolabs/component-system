@@ -2,6 +2,7 @@ import { configure, addParameters, addDecorator } from "@storybook/react";
 import { create } from "@storybook/theming";
 import { withKnobs } from "@storybook/addon-knobs";
 import { withInfo } from "@storybook/addon-info";
+import { themeDecorator } from '../src/stories/helpers';
 
 addParameters({
   options: {
@@ -14,6 +15,7 @@ addParameters({
 
 addDecorator(withKnobs);
 addDecorator(withInfo);
+addDecorator(themeDecorator);
 
 // automatically import all files ending in *.stories.tsx
 const reqAtoms = require.context("../src/atoms/", true, /\.stories\.tsx$/);

@@ -48,9 +48,7 @@ storiesOf("Molecules / Stepper", module)
     </StyledTheme>
   ))
   .add("in overlay", () => (
-    <Theme color={orange}>
-      <Overlay>
-        <ControlledStepper />
-      </Overlay>
-    </Theme>
+    <Overlay>
+      <ControlledStepper />
+    </Overlay>
   ));

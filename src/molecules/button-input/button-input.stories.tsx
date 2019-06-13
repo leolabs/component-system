@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { FeatherIcon } from "../../atoms/icons/icons";
 import { CheckCircle } from "react-feather";
 import { orange } from "../../theme/colors/colors";
-import { Theme } from "../../theme/theme-context/theme-context";
 
 import { ButtonInput } from "./button-input";
 import { text } from "@storybook/addon-knobs";
@@ -34,13 +33,5 @@ const Input = ({ disabled }) => {
 };
 
 storiesOf("Molecules / Button Input", module)
-  .add("default", () => (
-    <Theme color={orange}>
-      <Input disabled={false} />
-    </Theme>
-  ))
-  .add("disabled", () => (
-    <Theme color={orange}>
-      <Input disabled={true} />
-    </Theme>
-  ));
+  .add("default", () => <Input disabled={false} />)
+  .add("disabled", () => <Input disabled={true} />);

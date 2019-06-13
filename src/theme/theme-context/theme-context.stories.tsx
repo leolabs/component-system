@@ -2,9 +2,6 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { styled } from "linaria/react";
 
-import * as colors from "../colors/colors";
-import { Theme } from "./theme-context";
-
 const ColorThemedBlock = styled.div`
   display: flex;
   align-items: center;
@@ -17,8 +14,4 @@ const ColorThemedBlock = styled.div`
   color: var(--color-800);
 `;
 
-storiesOf("Theme / Colors", module).add("Theming", () => (
-  <Theme color={colors.indigo}>
-    <ColorThemedBlock>Text</ColorThemedBlock>
-  </Theme>
-));
+storiesOf("Theme / Colors", module).add("Theming", () => <ColorThemedBlock>Text</ColorThemedBlock>);
