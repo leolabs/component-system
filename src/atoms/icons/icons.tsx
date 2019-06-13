@@ -28,3 +28,5 @@ export const FeatherIcon: React.FC<{ icon: Feather } & FeatherProps> = ({
   icon: Icon,
   ...props
 }) => <Icon size="" {...props} className={iconCl} />;
+
+export type IconNode = React.ReactElement<typeof FeatherIcon | typeof FontAwesomeIcon>;

@@ -100,6 +100,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       font-weight: regular;
       letter-spacing: 0px;
       line-height: 1.2;
+      white-space: nowrap;
     `,
     element: "label",
   },
