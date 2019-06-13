@@ -18,15 +18,15 @@ const StyledStepper = styled.div`
   }
 `;
 
-const Btn = styled(Button)`
+const StyledButton = styled(Button)`
   margin-left: 1rem;
 `;
 
 interface StepperProps {
   step: number;
   maxStep: number;
-  onChange: (step: number) => any;
-  onFinish: () => any;
+  onChange?: (step: number) => any;
+  onFinish?: () => any;
 }
 
 export const Stepper: React.FC<StepperProps & Omit<React.ComponentProps<"div">, "onChange">> = ({
@@ -41,21 +41,21 @@ export const Stepper: React.FC<StepperProps & Omit<React.ComponentProps<"div">, 
       Step {step} of {maxStep}
     </Typography>
     {step > 1 ? (
-      <Btn onClick={() => onChange(step - 1)}>
+      <StyledButton onClick={() => onChange && onChange(step - 1)}>
         <FeatherIcon icon={ChevronLeft} />
-      </Btn>
+      </StyledButton>
     ) : null}
     {step < maxStep ? (
-      <Btn primary onClick={() => onChange(step + 1)}>
+      <StyledButton primary onClick={() => onChange && onChange(step + 1)}>
         <Typography variant="button">Next Step</Typography>
         <FeatherIcon icon={ChevronRight} />
-      </Btn>
+      </StyledButton>
     ) : null}
     {step === maxStep ? (
-      <Btn primary onClick={() => onFinish()}>
+      <StyledButton primary onClick={() => onFinish && onFinish()}>
         <FeatherIcon icon={Check} />
         <Typography variant="button">Finish</Typography>
-      </Btn>
+      </StyledButton>
     ) : null}
   </StyledStepper>
 );
