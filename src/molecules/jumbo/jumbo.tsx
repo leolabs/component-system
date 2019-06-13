@@ -18,7 +18,7 @@ const Base = styled.div`
   justify-content: center;
   text-align: center;
 
-  padding: 1.5rem 2rem;
+  padding: 3rem 2rem;
   position: relative;
 
   > img {
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
   z-index: 1;
 
   > :not(:last-child) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 `;
 
