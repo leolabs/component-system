@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 import { css, cx } from "linaria";
 import { styled } from "linaria/react";
 
 import { neutral, orange } from "../../theme/colors/colors";
 import { shortTime } from "../../theme/timing/timing";
 
-export interface InputProps extends Partial<HTMLInputElement> {
+export interface InputProps extends ComponentProps<"input"> {
   multiline?: boolean;
   rows?: number;
 }
