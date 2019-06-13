@@ -37,6 +37,7 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   position: relative;
 
   font-size: 1rem;
+  font-weight: 500;
   padding: 0 1rem;
   border-radius: 2rem;
   cursor: pointer;
