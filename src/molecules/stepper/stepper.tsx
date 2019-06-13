@@ -16,10 +16,10 @@ const StyledStepper = styled.div`
   > :first-child {
     margin-right: auto;
   }
+`;
 
-  button {
-    margin-left: 1rem;
-  }
+const Btn = styled(Button)`
+  margin-left: 1rem;
 `;
 
 interface StepperProps {
@@ -41,21 +41,21 @@ export const Stepper: React.FC<StepperProps & Omit<React.ComponentProps<"div">, 
       Step {step} of {maxStep}
     </Typography>
     {step > 1 ? (
-      <Button onClick={() => onChange(step - 1)}>
+      <Btn onClick={() => onChange(step - 1)}>
         <FeatherIcon icon={ChevronLeft} />
-      </Button>
+      </Btn>
     ) : null}
     {step < maxStep ? (
-      <Button primary onClick={() => onChange(step + 1)}>
+      <Btn primary onClick={() => onChange(step + 1)}>
         <Typography variant="button">Next Step</Typography>
         <FeatherIcon icon={ChevronRight} />
-      </Button>
+      </Btn>
     ) : null}
     {step === maxStep ? (
-      <Button primary onClick={() => onFinish()}>
+      <Btn primary onClick={() => onFinish()}>
         <FeatherIcon icon={Check} />
         <Typography variant="button">Finish</Typography>
-      </Button>
+      </Btn>
     ) : null}
   </StyledStepper>
 );

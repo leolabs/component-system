@@ -1,8 +1,9 @@
 import React from "react";
+import { css, cx } from "linaria";
 import { styled } from "linaria/react";
+
 import { neutral, orange } from "../../theme/colors/colors";
 import { shortTime } from "../../theme/timing/timing";
-import { css } from "linaria";
 
 export interface InputProps extends Partial<HTMLInputElement> {
   multiline?: boolean;
@@ -47,7 +48,12 @@ const multiline = css`
 
 export const Input: React.SFC<InputProps> = props =>
   props.multiline ? (
-    <StyledInput as="textarea" className={multiline} rows={props.rows || 7} {...props} />
+    <StyledInput
+      as="textarea"
+      className={cx(multiline, props.className)}
+      rows={props.rows || 7}
+      {...props}
+    />
   ) : (
     <StyledInput {...props} />
   );

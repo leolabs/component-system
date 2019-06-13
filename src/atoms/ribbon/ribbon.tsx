@@ -1,14 +1,15 @@
-import { styled } from 'linaria/react';
-import React from 'react';
+import { styled } from "linaria/react";
+import React from "react";
 
-import { Typography } from '../typography/typography';
+import { Typography } from "../typography/typography";
 
 export interface RibbonProps {
+  className?: string;
   color?: string;
 }
 
 const Band = styled.div`
-  background-color: ${(props: RibbonProps) => props.color ? props.color : 'var(--color-500)'};
+  background-color: ${(props: RibbonProps) => (props.color ? props.color : "var(--color-500)")};
   box-shadow: rgba(0, 0, 0, 0.25) 0 2px 5px 0;
 
   display: flex;
@@ -41,11 +42,8 @@ const Wrapper = styled.div`
   pointer-events: none;
 `;
 
-export const Ribbon: React.FC<RibbonProps> = ({
-  children,
-  color,
-}) => (
-  <Wrapper>
+export const Ribbon: React.FC<RibbonProps> = ({ className, children, color, ...rest }) => (
+  <Wrapper {...rest}>
     <Band color={color}>
       <Typography variant="ribbon">{children}</Typography>
     </Band>

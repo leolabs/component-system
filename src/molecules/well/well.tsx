@@ -4,6 +4,7 @@ import { styled } from "linaria/react";
 import { Color, neutral } from "../../theme/colors/colors";
 
 export interface WellProps {
+  className?: string;
   color?: Color;
   primary?: boolean;
 }
@@ -20,8 +21,8 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Well: React.FC<WellProps> = ({ children, color, primary }) => (
-  <Wrapper color={color} primary={primary}>
+export const Well: React.FC<WellProps> = ({ children, className, color, primary }) => (
+  <Wrapper className={className} color={color} primary={primary}>
     {children}
   </Wrapper>
 );

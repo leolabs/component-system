@@ -116,6 +116,9 @@ const noBackgroundDisabled = css`
 export const Button = (props: ButtonProps & Omit<React.ComponentProps<"button">, "color">) => (
   <StyledButton
     {...props}
-    className={cx(props.disabled ? (props.noBackground ? noBackgroundDisabled : disabled) : null)}
+    className={cx(
+      props.className,
+      props.disabled ? (props.noBackground ? noBackgroundDisabled : disabled) : null,
+    )}
   />
 );

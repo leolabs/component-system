@@ -7,6 +7,7 @@ import { shortTime } from "../../theme/timing/timing";
 
 export interface ButtonInputProps {
   canSubmit?: boolean;
+  className?: string;
   color?: Color;
   disabled?: boolean;
   icon: React.ReactNode;
@@ -16,6 +17,14 @@ export interface ButtonInputProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
+
+const Btn = styled(Button)`
+  border-radius: 0 2rem 2rem 0;
+  margin: 0;
+  padding: 0 1.5rem;
+
+  transition: background-color ${shortTime} ease;
+`;
 
 const Form = styled.form`
   border: 2px solid ${neutral[100]};
@@ -32,14 +41,7 @@ const Form = styled.form`
     border-color: var(--color-300);
   }
 
-  button {
-    border-radius: 0 2rem 2rem 0;
-    margin: 0;
-    padding: 0 1.5rem;
-
-    transition: background-color ${shortTime} ease;
-  }
-  :focus-within button:not(:disabled) {
+  :focus-within ${Btn as any}:not(:disabled) {
     background-color: var(--color-300);
   }
 `;
@@ -61,6 +63,7 @@ const Input = styled.input`
 
 export const ButtonInput: React.SFC<ButtonInputProps> = ({
   canSubmit,
+  className,
   color,
   disabled,
   icon,
@@ -70,10 +73,10 @@ export const ButtonInput: React.SFC<ButtonInputProps> = ({
   onChange,
   onSubmit,
 }) => (
-  <Form onSubmit={onSubmit}>
+  <Form className={className} onSubmit={onSubmit}>
     <Input disabled={disabled} onChange={onChange} placeholder={placeholder} value={value} />
-    <Button color={color} disabled={disabled || !canSubmit} type="submit">
+    <Btn color={color} disabled={disabled || !canSubmit} type="submit">
       {icon}
-    </Button>
+    </Btn>
   </Form>
 );

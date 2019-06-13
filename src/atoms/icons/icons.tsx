@@ -1,7 +1,7 @@
 import React, { ComponentProps } from "react";
 import { Icon as Feather, Props as FeatherProps } from "react-feather";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { css } from "linaria";
+import { css, cx } from "linaria";
 
 export const iconCl = css`
   display: inline-block;
@@ -11,10 +11,11 @@ export const iconCl = css`
 `;
 
 export const FontAwesomeIcon: React.FC<{ icon: IconDefinition } & ComponentProps<"svg">> = ({
+  className,
   icon,
 }) => (
   <svg
-    className={iconCl}
+    className={cx(iconCl, className)}
     viewBox={`0 0 ${icon.icon[0]} ${icon.icon[1]}`}
     width={Math.max(icon.icon[0], icon.icon[1])}
     height={Math.max(icon.icon[0], icon.icon[1])}
@@ -25,8 +26,9 @@ export const FontAwesomeIcon: React.FC<{ icon: IconDefinition } & ComponentProps
 );
 
 export const FeatherIcon: React.FC<{ icon: Feather } & FeatherProps> = ({
+  className,
   icon: Icon,
   ...props
-}) => <Icon size="" {...props} className={iconCl} />;
+}) => <Icon size="" {...props} className={cx(iconCl, className)} />;
 
 export type IconNode = React.ReactElement<typeof FeatherIcon | typeof FontAwesomeIcon>;
