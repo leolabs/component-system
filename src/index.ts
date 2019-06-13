@@ -10,8 +10,11 @@ export * from "./atoms/typography/typography";
 export * from "./layout/overlay/overlay";
 export * from "./layout/responsive-aspect/responsive-aspect";
 
+export * from "./molecules/button-input/button-input";
 export * from "./molecules/event-detail/event-detail";
 export * from "./molecules/jumbo/jumbo";
+export * from "./molecules/rsvp/rsvp";
+export * from "./molecules/stepper/stepper";
 
 export * from "./theme/colors/colors";
 export * from "./theme/theme-context/theme-context";
