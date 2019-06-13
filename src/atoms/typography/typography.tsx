@@ -1,4 +1,4 @@
-import { css, cx, CSSProperties } from "linaria";
+import { css, cx } from "linaria";
 import React, { ReactHTML } from "react";
 
 import { neutral } from "../../theme/colors/colors";
@@ -31,25 +31,11 @@ export type Variant =
   | "status"
   | "title";
 
-const baseStyles = {
-  margin: 0,
-};
-
-const baseNeutral: CSSProperties = {
-  ...baseStyles,
-  color: neutral[700],
-};
-
-const basePrimary: CSSProperties = {
-  ...baseStyles,
-  color: "var(--color-500)",
-};
-
 export const definitions: Record<Variant, TypographyDefinition> = {
   "body-1": {
     className: css`
-      ${baseNeutral}
-
+      margin: 0;
+      color: ${neutral[700]};
       font-size: 1.25rem;
       font-weight: regular;
       letter-spacing: 0px;
@@ -59,8 +45,8 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   "body-2": {
     className: css`
-      ${baseNeutral}
-
+      margin: 0;
+      color: ${neutral[700]};
       font-size: 1rem;
       font-weight: medium;
       letter-spacing: 0;
@@ -70,8 +56,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   button: {
     className: css`
-      ${baseStyles}
-
+      margin: 0;
       font-size: 1rem;
       font-weight: semibold;
       letter-spacing: 0;
@@ -82,8 +67,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   detail: {
     className: css`
-      ${baseStyles}
-
+      margin: 0;
       color: var(--color-900);
       font-size: 1rem;
       font-weight: 500;
@@ -94,8 +78,8 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   label: {
     className: css`
-      ${baseNeutral}
-
+      margin: 0;
+      color: ${neutral[700]};
       font-size: 1.125rem;
       font-weight: regular;
       letter-spacing: 0px;
@@ -106,8 +90,8 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   "heading-1": {
     className: css`
-      ${basePrimary}
-
+      margin: 0;
+      color: var(--color-500);
       font-size: 2rem;
       font-weight: medium;
       letter-spacing: 0;
@@ -117,8 +101,8 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   "heading-2": {
     className: css`
-      ${basePrimary}
-
+      margin: 0;
+      color: var(--color-500);
       font-size: 1.5rem;
       font-weight: semibold;
       letter-spacing: 0;
@@ -128,8 +112,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   "heading-jumbo": {
     className: css`
-      ${baseStyles}
-
+      margin: 0;
       color: white;
       font-size: 2.25rem;
       letter-spacing: 0;
@@ -139,8 +122,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   ribbon: {
     className: css`
-      ${baseStyles}
-
+      margin: 0;
       color: white;
       font-size: 1rem;
       font-weight: bold;
@@ -151,8 +133,8 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   status: {
     className: css`
-      ${baseNeutral}
-
+      margin: 0;
+      color: ${neutral[700]};
       font-size: 1rem;
       font-weight: regular;
       letter-spacing: 0;
@@ -164,8 +146,8 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
   title: {
     className: css`
-      ${basePrimary}
-
+      margin: 0;
+      color: var(--color-500);
       font-size: 1.5rem;
       font-weight: bold;
       letter-spacing: 0;
