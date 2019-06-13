@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { css } from "linaria";
 import { select } from "@storybook/addon-knobs";
 import { RenderFunction } from "@storybook/react";
@@ -13,13 +13,6 @@ import {
   yellowVivid,
 } from "../theme/colors/colors";
 import { Theme } from "../theme/theme-context/theme-context";
-
-export const flexer = css`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const flexColumn = (story: RenderFunction) => <div className={flexer}>{story()}</div>;
 
 export const themeDecorator = (story: RenderFunction) => (
   <Theme
@@ -44,3 +37,33 @@ export const themeDecorator = (story: RenderFunction) => (
     {story()}
   </Theme>
 );
+
+const bodyMarginStyles = css`
+  #root > div > div {
+    margin: 1rem;
+  }
+`;
+
+const flexColumnStyles = css`
+  #root > div > div {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+const StyleApplier: React.FC<{ styleClass: string }> = ({ styleClass, children }) => {
+  useEffect(() => {
+    document.body.classList.add(styleClass);
+    return () => document.body.classList.remove(styleClass);
+  });
+
+  return <>{children}</>;
+};
+
+const applyStyle = (styleClass: string) => (story: RenderFunction) => {
+  return <StyleApplier styleClass={styleClass}>{story()}</StyleApplier>;
+};
+
+export const flexColumn = applyStyle(flexColumnStyles);
+export const bodyMargin = applyStyle(bodyMarginStyles);
