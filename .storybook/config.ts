@@ -16,14 +16,19 @@ addDecorator(withKnobs);
 addDecorator(withInfo);
 
 // automatically import all files ending in *.stories.tsx
-const req = require.context("../src", true, /\.stories\.tsx$/);
+const reqAtoms = require.context("../src/atoms/", true, /\.stories\.tsx$/);
+const reqMolecules = require.context("../src/molecules/", true, /\.stories\.tsx$/);
+const reqTemplates = require.context("../src/templates/", true, /\.stories\.tsx$/);
+const reqLayout = require.context("../src/layout/", true, /\.stories\.tsx$/);
+const reqTheme = require.context("../src/theme/", true, /\.stories\.tsx$/);
 
 function loadStories() {
   require("../src/stories/index/index.stories.tsx");
-  req
-    .keys()
-    .filter(k => !k.includes("index.stories.tsx"))
-    .forEach(req);
+  reqAtoms.keys().forEach(reqAtoms);
+  reqMolecules.keys().forEach(reqMolecules);
+  reqTemplates.keys().forEach(reqTemplates);
+  reqLayout.keys().forEach(reqLayout);
+  reqTheme.keys().forEach(reqTheme);
 }
 
 configure(loadStories, module);
