@@ -10,14 +10,7 @@ export interface EventDetailProps {
   secondary?: React.ReactNode;
 }
 
-const CenteredRow = styled.div`
-  display: flex;
-  align-items: center;
-
-  font-size: 1.2rem;
-`;
-
-const StartRow = styled.div`
+const Base = styled.div`
   display: flex;
   align-items: flex-start;
 
@@ -28,12 +21,13 @@ const Column = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin-left: 0.5rem;
+  margin-left: 0.75rem;
+  padding-top: 0.125rem;
 `;
 
 export const EventDetail: React.FC<EventDetailProps> = ({ color, icon, primary, secondary }) => {
-  const inner = (
-    <>
+  return (
+    <Base>
       {icon}
 
       <Column>
@@ -42,8 +36,6 @@ export const EventDetail: React.FC<EventDetailProps> = ({ color, icon, primary, 
         </Typography>
         {secondary && <Typography variant="body-2">{secondary}</Typography>}
       </Column>
-    </>
+    </Base>
   );
-
-  return primary && secondary ? <StartRow>{inner}</StartRow> : <CenteredRow>{inner}</CenteredRow>;
 };
