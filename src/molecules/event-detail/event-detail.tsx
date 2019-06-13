@@ -2,6 +2,7 @@ import { styled } from "linaria/react";
 import React from "react";
 
 import { Typography } from "../../atoms/typography/typography";
+import { neutral } from "../../theme/colors/colors";
 
 export interface EventDetailProps {
   color?: string;
@@ -15,6 +16,7 @@ const Base = styled.div`
   align-items: flex-start;
 
   font-size: 1.2rem;
+  color: ${neutral[200]};
 `;
 
 const Column = styled.div`
