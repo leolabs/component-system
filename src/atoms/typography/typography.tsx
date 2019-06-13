@@ -1,6 +1,5 @@
-import { css, CSSProperties } from "linaria";
+import { css, cx, CSSProperties } from "linaria";
 import React, { ReactHTML } from "react";
-import classNames from "classnames";
 
 import { neutral } from "../../theme/colors/colors";
 
@@ -189,7 +188,7 @@ export const Typography: React.SFC<TypographyProps> = ({
 
   const props: any = {
     ...rest,
-    className: classNames(definition.className, className),
+    className: cx(definition.className, className),
   };
 
   if (color) {

@@ -1,7 +1,6 @@
 import React from "react";
 import { Color, primary } from "../colors/colors";
-import { css } from "linaria";
-import classNames from "classnames";
+import { css, cx } from "linaria";
 
 interface ThemeProps {
   className?: string;
@@ -26,7 +25,7 @@ const createVariables = (color: Color) =>
 export const Theme: React.FC<ThemeProps> = ({ className, color, children, style }) => {
   const themeStyle = { ...style, ...(color ? createVariables(color) : createVariables(primary)) };
   return (
-    <div style={themeStyle} className={classNames(themeCss, className)}>
+    <div style={themeStyle} className={cx(themeCss, className)}>
       {children}
     </div>
   );
