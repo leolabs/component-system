@@ -9,15 +9,23 @@ import { Theme } from "../../theme/theme-context/theme-context";
 import { Jumbo } from "./jumbo";
 
 const size = css`
-  height: 128px;
-  width: 256px;
+  height: 150px;
+  width: 300px;
 `;
 
-storiesOf("Molecules / Jumbo", module).add("default", () => (
-  <Theme color={orange}>
-    <Jumbo background="https://source.unsplash.com/zGzXsJUBQfs/512x256" className={size}>
-      <Typography variant="heading-2">Jumbo Header</Typography>
-      <Typography variant="body-1">Jumbo Body</Typography>
-    </Jumbo>
-  </Theme>
-));
+storiesOf("Molecules / Jumbo", module)
+  .add("no background", () => (
+    <Theme color={orange}>
+      <Jumbo className={size}>
+        <Typography variant="heading-2">Jumbo Header</Typography>
+        <Typography variant="body-1">Jumbo Body</Typography>
+      </Jumbo>
+    </Theme>
+  ))
+  .add("with background", () => (
+    <Theme color={orange}>
+      <Jumbo background="https://source.unsplash.com/zGzXsJUBQfs/512x256" className={size}>
+        <Typography variant="heading-jumbo">Jumbo Header</Typography>
+      </Jumbo>
+    </Theme>
+  ));
