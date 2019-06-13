@@ -166,6 +166,8 @@ export const DatetimePicker: React.SFC<DatetimePickerProps> = ({ value, onDateCh
   });
   const timeStr = d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
 
+  // simplification for change handlers
+  // provides a memoized function which returns an event handler based on the type
   const inputChanged = useMemo(
     () => (type: "date" | "time") => (e: ChangeEvent) => {
       if (!onDateChange) {
