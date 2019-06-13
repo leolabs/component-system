@@ -6,7 +6,7 @@ export const Overlay = styled.div<{ hidden?: boolean }>`
   bottom: 0;
   left: 0;
   right: 0;
-  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1), 0 0 6px rgba(0, 0, 0, 0.15);
 
   transition: transform 0.4s;
   transform: ${p => (p.hidden ? "translateY(100%)" : "none")};
