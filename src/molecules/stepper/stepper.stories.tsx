@@ -26,13 +26,23 @@ const ControlledStepper: React.FC = () => {
         setStep(step);
         action("Stepped")(step);
       }}
-      onFinish={action("Finish Clicked")}
+      onFinish={action("Finish clicked")}
     />
   );
 };
 
 storiesOf("Molecules / Stepper", module)
   .add("default", () => (
+    <StyledTheme color={orange}>
+      <Stepper
+        step={number("Step", 1)}
+        maxStep={number("Maximum Step", 4)}
+        onChange={action("Stepped")}
+        onFinish={action("Finish clicked")}
+      />
+    </StyledTheme>
+  ))
+  .add("controlled", () => (
     <StyledTheme color={orange}>
       <ControlledStepper />
     </StyledTheme>
