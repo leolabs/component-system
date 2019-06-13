@@ -53,20 +53,20 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   }
 
   .${iconCl}:first-child {
-    margin-left: -0.25rem;
+    margin-left: -0.25em;
   }
 
   .${iconCl}:last-child {
-    margin-right: -0.25rem;
+    margin-right: -0.25em;
   }
 
   .${iconCl}:only-child {
-    margin-left: -0.35rem;
-    margin-right: -0.35rem;
+    margin-left: -0.35em;
+    margin-right: -0.35em;
   }
 
   > * {
-    margin: 0 0.25rem;
+    margin: 0 0.25em;
     display: inline-block;
   }
 `;
