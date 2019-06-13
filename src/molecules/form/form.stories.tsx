@@ -9,12 +9,12 @@ import { text } from "@storybook/addon-knobs";
 storiesOf("Molecules / Form", module)
   .add("default", () => (
     <FormField label={text("label", "Dein Name")} icon={<FeatherIcon icon={Info} />}>
-      <Input />
+      <Input placeholder={text("placeholder", "")} />
     </FormField>
   ))
   .add("inline", () => (
     <FormField label={text("label", "Dein Name")} icon={<FeatherIcon icon={Info} />} inline>
-      <Input />
+      <Input placeholder={text("placeholder", "")} />
     </FormField>
   ))
   .add("multiple", () => (
