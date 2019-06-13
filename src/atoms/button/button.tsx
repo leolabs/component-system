@@ -40,6 +40,8 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   border-radius: 2rem;
   cursor: pointer;
 
+  user-select: none;
+
   margin: 0.5rem 0;
   height: 2.5rem;
 
