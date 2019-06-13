@@ -68,7 +68,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   detail: {
     className: css`
       margin: 0;
-      color: var(--color-900);
+      color: var(--color-700);
       font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0;

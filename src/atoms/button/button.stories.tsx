@@ -7,10 +7,8 @@ import { FeatherIcon } from "../icons/icons";
 import { ChevronRight, ChevronLeft } from "react-feather";
 import { Typography } from "../typography/typography";
 import { green, yellow } from "../../theme/colors/colors";
-import { bodyMargin } from "../../stories/helpers";
 
 storiesOf("Atoms / Button", module)
-  .addDecorator(bodyMargin)
   .add("default", () => <Button>{text("content", "Click me!")}</Button>)
   .add("primary", () => <Button primary>{text("content", "Click me!")}</Button>)
   .add("disabled", () => <Button disabled>{text("content", "Click me!")}</Button>)

@@ -38,20 +38,6 @@ export const themeDecorator = (story: RenderFunction) => (
   </Theme>
 );
 
-const bodyMarginStyles = css`
-  #root > div > div {
-    margin: 1rem;
-  }
-`;
-
-const flexColumnStyles = css`
-  #root > div > div {
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-  }
-`;
-
 const StyleApplier: React.FC<{ styleClass: string }> = ({ styleClass, children }) => {
   useEffect(() => {
     document.body.classList.add(styleClass);
@@ -65,5 +51,16 @@ const applyStyle = (styleClass: string) => (story: RenderFunction) => {
   return <StyleApplier styleClass={styleClass}>{story()}</StyleApplier>;
 };
 
+const bodyMarginStyles = css`
+  margin: 1rem;
+`;
+
+const flexColumnStyles = css`
+  #root > div > div {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const noMargin = applyStyle(bodyMarginStyles);
 export const flexColumn = applyStyle(flexColumnStyles);
-export const bodyMargin = applyStyle(bodyMarginStyles);
