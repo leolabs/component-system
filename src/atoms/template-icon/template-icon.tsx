@@ -33,7 +33,9 @@ const TemplateIconInner = styled.div<{ selected?: boolean; color: Color }>`
   }
 `;
 
-export const TemplateIcon: typeof TemplateIconInner = props => (
+export const TemplateIcon: React.FC<
+  React.ComponentProps<typeof TemplateIconInner> & Omit<React.ComponentProps<"div">, "color">
+> = props => (
   <ResponsiveAspect ratio={1} {...props}>
     <TemplateIconInner color={props.color} selected={props.selected}>
       {props.children}
