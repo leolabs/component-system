@@ -9,7 +9,7 @@ import { CheckCircle, XCircle, HelpCircle } from "react-feather";
 
 export interface RsvpProps {
   onChange?: (newValue: Response) => void;
-  value: Response;
+  value: Response | null;
 }
 
 export type Response = "yes" | "no" | "maybe";

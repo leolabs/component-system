@@ -7,7 +7,7 @@ import { Theme } from "../../theme/theme-context/theme-context";
 import { Rsvp, Response } from "./rsvp";
 
 const SelectableRsvp = () => {
-  const [val, setVal] = useState<Response>("yes");
+  const [val, setVal] = useState<Response | null>(null);
 
   return <Rsvp value={val} onChange={setVal} />;
 };
