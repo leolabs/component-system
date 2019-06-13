@@ -7,7 +7,7 @@ export interface JumboProps {
   background?: React.ReactNode;
 }
 
-const Body = styled.div`
+const Base = styled.div`
   box-sizing: border-box;
 
   display: flex;
@@ -67,10 +67,10 @@ const Wrapper = styled.div`
 `;
 
 export const Jumbo: React.FC<JumboProps> = ({ background, children }) => (
-  <Body>
+  <Base>
     {typeof background === "string" ? <img src={background} /> : background}
     <Overlay hasBg={Boolean(background)} />
 
     <Wrapper>{children}</Wrapper>
-  </Body>
+  </Base>
 );
