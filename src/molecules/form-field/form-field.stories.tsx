@@ -19,14 +19,14 @@ storiesOf("Molecules / Form Field", module)
   ))
   .add("multiple", () => (
     <>
-      <FormField label="Vorname" icon={<FeatherIcon icon={User} />} inline>
-        <Input />
+      <FormField label="First name" icon={<FeatherIcon icon={User} />} inline>
+        <Input placeholder="Your first name" />
       </FormField>
-      <FormField label="Nachname" inline>
-        <Input />
+      <FormField label="Last name" inline>
+        <Input placeholder="Your last name" />
       </FormField>
       <FormField label="About" icon={<FeatherIcon icon={Info} />}>
-        <Input multiline />
+        <Input multiline placeholder="Write something..." />
       </FormField>
     </>
   ));
