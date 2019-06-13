@@ -18,15 +18,17 @@ const StyledInput = styled.input<InputProps>`
   border: none;
   display: block;
   background: white;
+  box-sizing: border-box;
 
   font-size: 1rem;
   height: auto;
+  min-height: 2.5rem;
   padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   box-shadow: 0 0 0 0.09rem inset ${neutral[200]};
   transition: box-shadow ${shortTime};
 
-  margin: 0.125rem 0;
+  margin: 0;
 
   ::placeholder {
     color: ${neutral[300]};

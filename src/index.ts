@@ -13,7 +13,7 @@ export * from "./layout/responsive-aspect/responsive-aspect";
 
 export * from "./molecules/button-input/button-input";
 export * from "./molecules/event-detail/event-detail";
-export * from "./molecules/form-field/form-field";
+export * from "./molecules/form/form";
 export * from "./molecules/header/header";
 export * from "./molecules/jumbo/jumbo";
 export * from "./molecules/rsvp/rsvp";

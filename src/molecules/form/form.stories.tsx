@@ -1,12 +1,12 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { FormField } from "./form-field";
+import { FormField, Form } from "./form";
 import { Input } from "../../atoms/input/input";
 import { FeatherIcon } from "../../atoms/icons/icons";
 import { Info, User } from "react-feather";
 import { text } from "@storybook/addon-knobs";
 
-storiesOf("Molecules / Form Field", module)
+storiesOf("Molecules / Form", module)
   .add("default", () => (
     <FormField label={text("label", "Dein Name")} icon={<FeatherIcon icon={Info} />}>
       <Input />
@@ -18,7 +18,7 @@ storiesOf("Molecules / Form Field", module)
     </FormField>
   ))
   .add("multiple", () => (
-    <>
+    <Form>
       <FormField label="First name" icon={<FeatherIcon icon={User} />} inline>
         <Input placeholder="Your first name" />
       </FormField>
@@ -28,5 +28,5 @@ storiesOf("Molecules / Form Field", module)
       <FormField label="About" icon={<FeatherIcon icon={Info} />}>
         <Input multiline placeholder="Write something..." />
       </FormField>
-    </>
+    </Form>
   ));
