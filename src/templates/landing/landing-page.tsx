@@ -7,6 +7,7 @@ import { Jumbo } from "../../molecules/jumbo/jumbo";
 import { Typography } from "../../atoms/typography/typography";
 import { Button } from "../../atoms/button/button";
 import { FeatherIcon } from "../../atoms/icons/icons";
+import { ContentWrapper } from "../../layout/content-wrapper/content-wrapper";
 import { Theme } from "../../theme/theme-context/theme-context";
 import { orange } from "../../theme/colors/colors";
 
@@ -29,17 +30,9 @@ const Iphone = styled.img`
   width: 100%;
 `;
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-
-  padding-top: 4rem;
-`;
-
 export const LandingPage: React.FC<LandingPageProps> = ({ onCreateEvent }) => (
   <Theme color={orange}>
-    <Wrapper>
+    <ContentWrapper>
       <Header />
 
       <Jumbo>
@@ -58,6 +51,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onCreateEvent }) => (
 
         <Iphone src="https://5cff9cade7ecba35cf6e2ce4--gracious-lalande-80a605.netlify.com/design/images/ppO4vrTkbORJof7VbYzq6fFtnV8.png" />
       </Instructions>
-    </Wrapper>
+    </ContentWrapper>
   </Theme>
 );
