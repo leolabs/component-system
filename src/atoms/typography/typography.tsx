@@ -23,6 +23,7 @@ export type Variant =
   | "form-label"
   | "heading-1"
   | "heading-2"
+  | "heading-jumbo"
   | "ribbon"
   | "status"
   | "title";
@@ -119,6 +120,17 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       font-weight: semibold;
       letter-spacing: 0;
       line-height: 1.1;
+    `,
+    element: "h2",
+  },
+  "heading-jumbo": {
+    className: css`
+      ${baseStyles}
+
+      color: white;
+      font-size: 2.25rem;
+      letter-spacing: 0;
+      line-height: 1;
     `,
     element: "h2",
   },

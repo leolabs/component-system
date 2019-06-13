@@ -16,6 +16,7 @@ storiesOf("Atoms / Typography", module).add("variants", () => (
       "form-label",
       "heading-1",
       "heading-2",
+      "heading-jumbo",
       "status",
       "title",
     ].map((variant: Variant) => (
