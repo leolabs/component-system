@@ -9,6 +9,7 @@ module.exports = ({ config }) => {
         loader: "linaria/loader",
         options: {
           sourceMap: true,
+          displayName: true,
         },
       },
     ],
