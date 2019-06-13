@@ -37,7 +37,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       margin: 0;
       color: ${neutral[700]};
       font-size: 1.25rem;
-      font-weight: regular;
+      font-weight: normal;
       letter-spacing: 0px;
       line-height: 1.2;
     `,
@@ -48,7 +48,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       margin: 0;
       color: ${neutral[700]};
       font-size: 1rem;
-      font-weight: medium;
+      font-weight: normal;
       letter-spacing: 0;
       line-height: 1.2;
     `,
@@ -58,7 +58,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
     className: css`
       margin: 0;
       font-size: 1rem;
-      font-weight: semibold;
+      font-weight: 500;
       letter-spacing: 0;
       line-height: 1.2;
       text-transform: uppercase;
@@ -81,7 +81,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       margin: 0;
       color: ${neutral[700]};
       font-size: 1.125rem;
-      font-weight: regular;
+      font-weight: normal;
       letter-spacing: 0px;
       line-height: 1.2;
       white-space: nowrap;
@@ -93,7 +93,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       margin: 0;
       color: var(--color-500);
       font-size: 2rem;
-      font-weight: medium;
+      font-weight: 600;
       letter-spacing: 0;
       line-height: 1;
     `,
@@ -104,7 +104,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       margin: 0;
       color: var(--color-500);
       font-size: 1.5rem;
-      font-weight: semibold;
+      font-weight: 500;
       letter-spacing: 0;
       line-height: 1.1;
     `,
@@ -136,7 +136,7 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       margin: 0;
       color: ${neutral[700]};
       font-size: 1rem;
-      font-weight: regular;
+      font-weight: normal;
       letter-spacing: 0;
       line-height: 1.2;
       text-transform: uppercase;
