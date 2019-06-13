@@ -7,10 +7,11 @@ import { shortTime } from "../../theme/timing/timing";
 import { iconCl } from "../icons/icons";
 
 export interface ButtonProps {
-  primary?: boolean;
-  disabled?: boolean;
-  color?: Color;
   children?: Array<React.ReactNode> | React.ReactNode;
+  color?: Color;
+  disabled?: boolean;
+  primary?: boolean;
+  selected?: boolean;
 }
 
 const selectColor = (variant: number) => (props: ButtonProps) =>
@@ -32,6 +33,7 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   font-size: 1rem;
   padding: 0 1rem;
@@ -44,6 +46,23 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
   text-transform: uppercase;
 
   transition: background-color ${shortTime}, color ${shortTime};
+
+  ::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border-radius: 2rem;
+
+    box-shadow: ${props => (props.selected ? `0 3px 6px ${selectColor(600)(props)}` : "none")};
+    opacity: 0.4;
+    transition: box-shadow ${shortTime} ease;
+  }
 
   :hover {
     background: ${selectColor(200)};
