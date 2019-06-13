@@ -35,29 +35,27 @@ export const Stepper: React.FC<StepperProps & Omit<React.ComponentProps<"div">, 
   onChange,
   onFinish,
   ...props
-}) => {
-  return (
-    <StyledStepper {...props}>
-      <Typography variant="status">
-        Step {step} of {maxStep}
-      </Typography>
-      {step > 1 ? (
-        <Button onClick={() => onChange(step - 1)}>
-          <FeatherIcon icon={ChevronLeft} />
-        </Button>
-      ) : null}
-      {step < maxStep ? (
-        <Button primary onClick={() => onChange(step + 1)}>
-          <Typography variant="button">Next Step</Typography>
-          <FeatherIcon icon={ChevronRight} />
-        </Button>
-      ) : null}
-      {step === maxStep ? (
-        <Button primary onClick={() => onFinish()}>
-          <FeatherIcon icon={Check} />
-          <Typography variant="button">Finish</Typography>
-        </Button>
-      ) : null}
-    </StyledStepper>
-  );
-};
+}) => (
+  <StyledStepper {...props}>
+    <Typography variant="status">
+      Step {step} of {maxStep}
+    </Typography>
+    {step > 1 ? (
+      <Button onClick={() => onChange(step - 1)}>
+        <FeatherIcon icon={ChevronLeft} />
+      </Button>
+    ) : null}
+    {step < maxStep ? (
+      <Button primary onClick={() => onChange(step + 1)}>
+        <Typography variant="button">Next Step</Typography>
+        <FeatherIcon icon={ChevronRight} />
+      </Button>
+    ) : null}
+    {step === maxStep ? (
+      <Button primary onClick={() => onFinish()}>
+        <FeatherIcon icon={Check} />
+        <Typography variant="button">Finish</Typography>
+      </Button>
+    ) : null}
+  </StyledStepper>
+);
