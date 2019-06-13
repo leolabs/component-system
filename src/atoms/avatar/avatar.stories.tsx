@@ -2,19 +2,25 @@ import { storiesOf } from "@storybook/react";
 import React from "react";
 
 import { Avatar, Status } from "./avatar";
+import { flexSpace } from "../../stories/helpers";
+
+const users: ({ name: string; status: Status })[] = [
+  { name: "Grant Andra", status: "not-sent" },
+  { name: "Darrel Harold", status: "sent" },
+  { name: "Cassandra Rosalind", status: "accepted" },
+  { name: "Fabian Taylor", status: "maybe" },
+  { name: "Hayes Otis", status: "declined" },
+];
 
 storiesOf("Atoms / Avatar", module)
+  .addDecorator(flexSpace)
   .add("with image", () =>
-    ["not-sent", "sent", "accepted", "maybe", "declined"].map((status: Status) => (
+    users.map(user => (
       <Avatar
-        name="Frank Underwood"
+        name={user.name}
         image="https://source.unsplash.com/iFgRcqHznqg/100x100"
-        status={status}
+        status={user.status}
       />
     )),
   )
-  .add("without image", () =>
-    ["not-sent", "sent", "accepted", "maybe", "declined"].map((status: Status) => (
-      <Avatar name="Frank Underwood" status={status} />
-    )),
-  );
+  .add("without image", () => users.map(user => <Avatar name={user.name} status={user.status} />));

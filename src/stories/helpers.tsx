@@ -52,15 +52,27 @@ const applyStyle = (styleClass: string) => (story: RenderFunction) => {
 };
 
 const bodyMarginStyles = css`
-  margin: 1rem;
+  margin: 0rem;
 `;
 
 const flexColumnStyles = css`
-  #root > div > div {
+  #root div > div[style] {
     display: flex;
     flex-direction: column;
   }
 `;
 
+const flexSpaceStyles = css`
+  #root div > div[style] {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+      margin: 0 1rem 1rem 0;
+    }
+  }
+`;
+
 export const noMargin = applyStyle(bodyMarginStyles);
 export const flexColumn = applyStyle(flexColumnStyles);
+export const flexSpace = applyStyle(flexSpaceStyles);
