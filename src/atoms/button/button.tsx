@@ -43,7 +43,7 @@ const StyledButton = styled.button<ButtonProps & { className: string }>`
 
   user-select: none;
 
-  margin: 0.5rem 0;
+  margin: 0;
   height: 2.5rem;
 
   text-transform: uppercase;
