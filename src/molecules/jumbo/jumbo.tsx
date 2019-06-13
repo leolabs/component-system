@@ -5,7 +5,6 @@ import { neutral } from "../../theme/colors/colors";
 
 export interface JumboProps {
   background?: React.ReactNode;
-  className?: string;
 }
 
 const Body = styled.div`
@@ -16,10 +15,8 @@ const Body = styled.div`
   align-items: center;
   justify-content: center;
 
-  padding: 1rem;
+  padding: 1.5rem 2rem;
   position: relative;
-
-  width: 100%;
 
   > img {
     position: absolute;
@@ -69,8 +66,8 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Jumbo: React.FC<JumboProps> = ({ background, className, children }) => (
-  <Body className={className}>
+export const Jumbo: React.FC<JumboProps> = ({ background, children }) => (
+  <Body>
     {typeof background === "string" ? <img src={background} /> : background}
     <Overlay hasBg={Boolean(background)} />
 
