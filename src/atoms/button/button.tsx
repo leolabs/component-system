@@ -1,9 +1,10 @@
 import React from "react";
+import { css, cx } from "linaria";
 import { styled } from "linaria/react";
+
 import { Color, primary, neutral } from "../../theme/colors/colors";
 import { shortTime } from "../../theme/timing/timing";
 import { iconCl } from "../icons/icons";
-import { css } from "linaria";
 
 export interface ButtonProps {
   primary?: boolean;
@@ -82,5 +83,5 @@ const disabled = css`
 `;
 
 export const Button = (props: ButtonProps & Omit<React.ComponentProps<"button">, "color">) => (
-  <StyledButton {...props} className={props.disabled ? disabled : ""} />
+  <StyledButton {...props} className={cx(props.disabled && disabled)} />
 );
