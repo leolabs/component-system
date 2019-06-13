@@ -18,6 +18,7 @@ export * from './molecules/header/header';
 export * from "./molecules/jumbo/jumbo";
 export * from "./molecules/rsvp/rsvp";
 export * from "./molecules/stepper/stepper";
+export * from "./molecules/user/user";
 export * from "./molecules/well/well";
 
 export * from "./theme/colors/colors";
