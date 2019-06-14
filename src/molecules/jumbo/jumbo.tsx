@@ -3,8 +3,16 @@ import React from "react";
 
 import { neutral } from "../../theme/colors/colors";
 
+/** Props for the jumbo component. */
 export interface JumboProps extends React.ComponentProps<"div"> {
+  /**
+   * The jumbo background (image).
+   *
+   * When set, the jumbo adds a colored overlay in `backgroundColor`.
+   */
   background?: React.ReactNode;
+
+  /** The color of the background of the jumbo. */
   backgroundColor?: string;
 }
 
@@ -68,6 +76,11 @@ const Wrapper = styled.div`
   }
 `;
 
+/**
+ * A jumbo optionally with a background image.
+ *
+ * For best results, use together with typography variants `heading-1` and `heading-2`.
+ */
 export const Jumbo: typeof Base = ({ background, backgroundColor, children, ...props }) => (
   <Base {...props}>
     {typeof background === "string" ? <img src={background} alt="Jumbo" /> : background}
