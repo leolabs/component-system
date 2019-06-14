@@ -2,7 +2,8 @@ import { styled } from "linaria/react";
 import React from "react";
 import { Trash, Share } from "react-feather";
 
-import { Status, Avatar } from "../../atoms/avatar/avatar";
+import { UserStatus } from "../..";
+import { Avatar } from "../../atoms/avatar/avatar";
 import { Button } from "../../atoms/button/button";
 import { FeatherIcon } from "../../atoms/icons/icons";
 import { Typography } from "../../atoms/typography/typography";
@@ -13,7 +14,7 @@ export interface UserData {
   id: string;
   image?: string | null;
   name: string;
-  status: Status;
+  status: UserStatus;
 }
 
 export interface UserProps {

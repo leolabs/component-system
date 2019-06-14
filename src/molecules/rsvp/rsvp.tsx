@@ -1,10 +1,11 @@
 import { styled } from "linaria/react";
 import React, { useCallback } from "react";
+import { CheckCircle, XCircle, HelpCircle } from "react-feather";
 
+import { RsvpStatus } from "../..";
 import { Button } from "../../atoms/button/button";
 import { FeatherIcon } from "../../atoms/icons/icons";
 import { green, yellow, red } from "../../theme/colors/colors";
-import { CheckCircle, XCircle, HelpCircle } from "react-feather";
 
 /** Props for the RSVP component. */
 export interface RsvpProps {
@@ -12,11 +13,8 @@ export interface RsvpProps {
   onChange?: (newValue: Response) => void;
 
   /** The response value. Pass `null` for unselected. */
-  value?: Response | null;
+  value?: RsvpStatus | null;
 }
-
-/** The RSVP response. */
-export type Response = "yes" | "no" | "maybe";
 
 const Wrapper = styled.div`
   display: flex;

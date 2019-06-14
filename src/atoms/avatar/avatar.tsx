@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "linaria/react";
 
+import { UserStatus } from "../..";
 import { neutral } from "../../theme/colors/colors";
 
 /** Avatar component props. */
@@ -17,13 +18,8 @@ export interface AvatarProps {
   name: string;
 
   /** The user's RSVP state. */
-  status: Status;
+  status: UserStatus;
 }
-
-/**
- * The RSVP status of the given user.
- */
-export type Status = "not-sent" | "sent" | "accepted" | "maybe" | "declined";
 
 const backgrounds = ["#98AEEB", "#F191C1", "#F29B9B", "#A3D9A5", "#F8E3A3"];
 

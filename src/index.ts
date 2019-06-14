@@ -23,3 +23,9 @@ export * from "./molecules/well/well";
 
 export * from "./theme/colors/colors";
 export * from "./theme/theme-context/theme-context";
+
+/** The status of a raw RSVP. */
+export type RsvpStatus = 'accepted' | 'maybe' | 'declined';
+
+/** The RSVP status of a user (the RSVP might not have been sent yet). */
+export type UserStatus = RsvpStatus | 'sent' | 'not-sent';
