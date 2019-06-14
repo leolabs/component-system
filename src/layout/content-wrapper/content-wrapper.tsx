@@ -7,7 +7,7 @@ export interface ContentWrapperProps {
   templateChooser?: boolean;
 }
 
-export const ContentWrapper = styled.div<ContentWrapperProps>`
+export const ContentWrapper = styled.main<ContentWrapperProps>`
   display: flex;
   flex-direction: column;
   max-width: 100%;
