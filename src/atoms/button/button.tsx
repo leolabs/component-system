@@ -6,12 +6,33 @@ import { Color, primary, neutral } from "../../theme/colors/colors";
 import { shortTime } from "../../theme/timing/timing";
 import { iconCl } from "../icons/icons";
 
+/** Props for the button component. */
 export interface ButtonProps {
+  /** Button contents. Can be text, icons, typographies, etc. */
   children?: React.ReactNode[] | React.ReactNode;
+
+  /**
+   * The button's color. Affects background and font color.
+   *
+   * Overrides the `primary` setting.
+   */
   color?: Color;
+
+  /** Whether the button is disabled or not. */
   disabled?: boolean;
+
+  /** Whether the button shall be shown without a background. */
   noBackground?: boolean;
+
+  /**
+   * Whether the button is a primary button or not.
+   *
+   * When set, renders the button using the theme color. Overriden by
+   * `color`-setting.
+   */
   primary?: boolean;
+
+  /** Whether the button is selected. */
   selected?: boolean;
 }
 
@@ -114,6 +135,29 @@ const noBackgroundDisabled = css`
   }
 `;
 
+/**
+ * A colorable, selectable button.
+ *
+ * When showing text inside the button, use this together with a Typography
+ * on variant `button`.
+ *
+ * With text:
+ * @example
+ * ```
+ * <Button>
+ *   <Typography variant="button">Button text</Typography>
+ * </Button>
+ * ```
+ *
+ * With text and icon:
+ * @example
+ * ```
+ * <Button>
+ *   <FeatherIcon icon={CheckCircle} />
+ *   <Typography variant="button">Button text</Typography>
+ * </Button>
+ * ```
+ */
 export const Button = (props: ButtonProps & Omit<React.ComponentProps<"button">, "color">) => (
   <StyledButton
     {...props}
