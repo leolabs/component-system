@@ -3,12 +3,26 @@ import { styled } from "linaria/react";
 
 import { neutral } from "../../theme/colors/colors";
 
+/** Avatar component props. */
 export interface AvatarProps {
+  /**
+   * An image of the user. If not set, the component will show the user's initials.
+   */
   image?: string | null;
+
+  /**
+   * The user's name. Used for the alt on the background image tag and showing the
+   * user's initials, if needed.
+   */
   name: string;
+
+  /** The user's RSVP state. */
   status: Status;
 }
 
+/**
+ * The RSVP status of the given user.
+ */
 export type Status = "not-sent" | "sent" | "accepted" | "maybe" | "declined";
 
 const backgrounds = ["#98AEEB", "#F191C1", "#F29B9B", "#A3D9A5", "#F8E3A3"];
@@ -58,6 +72,9 @@ const Svg = styled.svg`
   position: absolute;
 `;
 
+/**
+ * A user avatar icon with an RSVP status indicator.
+ */
 export const Avatar: React.FC<AvatarProps> = ({ image, name, status }) => (
   <Wrapper>
     {image ? (
