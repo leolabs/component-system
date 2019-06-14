@@ -33,6 +33,11 @@ const TemplateIconInner = styled.div<{ selected?: boolean; color: Color }>`
   }
 `;
 
+/**
+ * An icon for an invitation template.
+ *
+ * All props are spread to the root element.
+ */
 export const TemplateIcon: React.FC<
   React.ComponentProps<typeof TemplateIconInner> & Omit<React.ComponentProps<"div">, "color">
 > = props => (
@@ -43,6 +48,7 @@ export const TemplateIcon: React.FC<
   </ResponsiveAspect>
 );
 
+/** A template icon with a fixed width of 80px. */
 export const StaticTemplateIcon = styled(TemplateIcon)`
   max-width: 80px;
 `;
