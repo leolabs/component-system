@@ -38,7 +38,7 @@ export const Stepper: React.FC<StepperProps & Omit<React.ComponentProps<"div">, 
 }) => (
   <StyledStepper {...props}>
     <Typography variant="status">
-      Step {step} of {maxStep}
+      Step&nbsp;{step} of&nbsp;{maxStep}
     </Typography>
     {step > 1 ? (
       <StyledButton onClick={() => onChange && onChange(step - 1)}>
