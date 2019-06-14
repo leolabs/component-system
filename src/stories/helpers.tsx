@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { css } from "linaria";
 import { select } from "@storybook/addon-knobs";
 import { RenderFunction } from "@storybook/react";
@@ -80,3 +80,13 @@ const flexSpaceStyles = css`
 export const noMargin = applyStyle(bodyMarginStyles);
 export const flexColumn = applyStyle(flexColumnStyles);
 export const flexSpace = applyStyle(flexSpaceStyles);
+
+export function StateInjector<T>({
+  children,
+  init,
+}: {
+  children: (value: T, setValue: (v: T) => void) => JSX.Element;
+  init: T;
+}) {
+  return children(...useState<T>(init));
+}
