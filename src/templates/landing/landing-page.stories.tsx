@@ -46,7 +46,6 @@ storiesOf("Templates / Landing Page", module)
 
       <Instructions>
         <Typography variant="heading-2">Fill in details</Typography>
-
         <Iphone src="https://5cff9cade7ecba35cf6e2ce4--gracious-lalande-80a605.netlify.com/design/images/ppO4vrTkbORJof7VbYzq6fFtnV8.png" />
       </Instructions>
     </ContentWrapper>
