@@ -71,18 +71,18 @@ export const RegisterLogin: React.FC<RegisterLoginProps> = ({
       <Form onSubmit={handleSubmit}>
         <LoginButton color={indigo} onClick={onSignInWithApple} type="button">
           <CompanyIcon src={Apple} />
-          <Typography variant="button">Sign in with Apple</Typography>
+          <span>Sign in with Apple</span>
         </LoginButton>
         <LoginButton color={indigo} onClick={onSignInWithGoogle} type="button">
           <CompanyIcon src={Google} />
-          <Typography variant="button">Sign in with Google</Typography>
+          <span>Sign in with Google</span>
         </LoginButton>
 
         <DividerOr variant="body-1">or</DividerOr>
 
         <Input placeholder="E-Mail" type="email" value={email} onChange={handleEmailChanged} />
         <Button primary type="submit">
-          <Typography variant="button">Register</Typography>
+          Register
         </Button>
       </Form>
     </ContentWrapper>

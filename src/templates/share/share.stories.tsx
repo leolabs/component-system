@@ -53,7 +53,7 @@ storiesOf("Templates / Share", module)
         <Jumbo backgroundColor={neutral[50]}>
           <Button primary onClick={action("Sharing clicked")}>
             <FeatherIcon icon={Share} />
-            <Typography variant="button">Share this event</Typography>
+            <span>Share this event</span>
           </Button>
         </Jumbo>
         <Form
