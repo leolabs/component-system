@@ -6,7 +6,7 @@ import { FormField } from "../../molecules/form/form";
 import { FeatherIcon } from "../icons/icons";
 import { Clock } from "react-feather";
 
-const UncontrolledDateTimePicker = (props) => {
+const UncontrolledDateTimePicker = props => {
   const [date, setDate] = useState(new Date(2019, 5, 2, 13, 37));
   const handleDateChange = useCallback(
     ({ value }) => {

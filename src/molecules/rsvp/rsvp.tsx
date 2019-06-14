@@ -3,7 +3,6 @@ import React, { useCallback } from "react";
 
 import { Button } from "../../atoms/button/button";
 import { FeatherIcon } from "../../atoms/icons/icons";
-import { Typography } from "../../atoms/typography/typography";
 import { green, yellow, red } from "../../theme/colors/colors";
 import { CheckCircle, XCircle, HelpCircle } from "react-feather";
 
