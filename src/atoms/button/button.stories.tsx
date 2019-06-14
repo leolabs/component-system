@@ -7,6 +7,7 @@ import { FeatherIcon } from "../icons/icons";
 import { ChevronRight, ChevronLeft } from "react-feather";
 import { Typography } from "../typography/typography";
 import { green, yellow } from "../../theme/colors/colors";
+import { Form } from "../../molecules/form/form";
 
 storiesOf("Atoms / Button", module)
   .add("default", () => <Button>{text("content", "Click me!")}</Button>)
@@ -50,9 +51,9 @@ storiesOf("Atoms / Button", module)
     </>
   ))
   .add("form", () => (
-    <>
+    <Form>
       <Input placeholder="Email" />
       <Input placeholder="Password" type="password" />
       <Button primary>Login / Register</Button>
-    </>
+    </Form>
   ));
