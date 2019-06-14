@@ -68,10 +68,10 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Jumbo: typeof Base = ({ background, children, ...props }) => (
+export const Jumbo: typeof Base = ({ background, backgroundColor, children, ...props }) => (
   <Base {...props}>
     {typeof background === "string" ? <img src={background} alt="Jumbo" /> : background}
-    <Overlay hasBg={Boolean(background)} />
+    <Overlay hasBg={Boolean(background)} backgroundColor={backgroundColor} />
 
     <Wrapper>{children}</Wrapper>
   </Base>
