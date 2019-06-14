@@ -17,8 +17,8 @@ export interface UserData {
 
 export interface UserProps {
   data: UserData;
-  onDelete?: (ev: React.MouseEvent) => void;
-  onShare?: (ev: React.MouseEvent) => void;
+  onDelete?: React.MouseEventHandler;
+  onShare?: React.MouseEventHandler;
 }
 
 const Base = styled(ListItem)`
