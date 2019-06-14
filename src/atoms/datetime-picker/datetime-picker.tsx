@@ -10,13 +10,24 @@ import { styled } from "linaria/react";
 import { neutral } from "../../theme/colors/colors";
 import { css } from "linaria";
 
+/** Event passed in `onDateChange` callback */
 export interface DateChangeEvent {
   value: Date;
 }
 
+/** Props for the DatetimePicker component */
 export interface DatetimePickerProps {
+  /** Date/Time value for controlling the input */
   value?: Date;
+
+  /** HTML ID-Attribute to set on the first input element */
   id?: string;
+
+  /**
+   * Callback being called when the user sucessfully changes
+   * the value of the component.
+   * Use `e.value` to get the Date/Time.
+   */
   onDateChange?: (e: DateChangeEvent) => void;
 }
 
@@ -94,7 +105,7 @@ const unsupported = css`
   }
 `;
 
-export interface PseudoPickProps extends ComponentProps<"input"> {
+interface PseudoPickProps extends ComponentProps<"input"> {
   value: string;
   repr: string;
   type: "date" | "time";
@@ -164,6 +175,31 @@ const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange, .
 
 const pad = (val: number) => (val < 10 ? "0" + String(val) : String(val));
 
+/**
+ * Styled input for date & time.
+ *
+ * Tries to use native capabilities as much
+ * as possible for the picker.
+ *
+ * Behavior across browser:
+ * - Native Picker for date & time
+ *   - Mobile Chrome, mobile Safari, mobile Firefox
+ * - Picker for date, text input for time for most desktop browsers
+ *   (detection: `!('touchstart' in window)`)
+ *   - Chrome, Firefox
+ * - Text input for date & time (feature detected)
+ *   - Safari
+ *
+ * Sizing from the outside via flexbox should be possible.
+ * Inputs keep a 3:2 sizing ratio.
+
+ * @example
+ * ```
+ * <FormField label="Start" icon={<FeatherIcon icon={Clock} />} inline>
+ *   <DatetimePicker value={date} onDateChange={handleDateChange} />
+ * </FormField>
+ * ```
+ */
 export const DatetimePicker: React.SFC<DatetimePickerProps> = ({ value, onDateChange, id }) => {
   const d = value || new Date();
 
