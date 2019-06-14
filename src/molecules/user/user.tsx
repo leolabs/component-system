@@ -10,16 +10,30 @@ import { Typography } from "../../atoms/typography/typography";
 import { ListItem } from "../../layout/list/list";
 import { neutral } from "../../theme/colors/colors";
 
+/** User metadata of a single user. */
 export interface UserData {
+  /** The users unique ID. */
   id: string;
+
+  /** Optional. The user's photo / image URL. */
   image?: string | null;
+
+  /** The user's name. */
   name: string;
+
+  /** The user's RSVP state. */
   status: UserStatus;
 }
 
+/** Props for the User component. */
 export interface UserProps {
+  /** The user's metadata. */
   data: UserData;
+
+  /** Called when the user is removed. */
   onDelete?: React.MouseEventHandler;
+
+  /** Called when the users invitation should be shared. */
   onShare?: React.MouseEventHandler;
 }
 
@@ -34,6 +48,20 @@ const Detail = styled.div`
   margin: 0 1rem;
 `;
 
+/**
+ * Display the RSVP state and management buttons for a single user.
+ *
+ * @example
+ * <User
+ *   data={{
+ *     id: "12345",
+ *     name: 'Hans Wurst',
+ *     status: 'accepted',
+ *   }}
+ *   onDelete={disinviteUser}
+ *   onShare={inviteUser}
+ * />
+ */
 export const User: React.SFC<UserProps> = ({ data, onDelete, onShare }) => (
   <Base>
     <Avatar {...data} />
