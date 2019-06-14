@@ -26,7 +26,7 @@ const Base = styled.div`
   width: 12rem;
 `;
 
-const Display = styled.label<{ className?: string; type?: "date" | "time" }>`
+const Display = styled.div<{ className?: string; type?: "date" | "time" } & ComponentProps<"div">>`
   position: relative;
   padding: 0.5rem 1rem;
   background: ${neutral[100]};
@@ -145,7 +145,7 @@ const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange, .
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      <span>{repr}</span>
+      <span aria-hidden>{repr}</span>
     </Display>
   );
 };
