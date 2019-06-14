@@ -50,7 +50,8 @@ const Wrapper = styled.div`
  * An overlay ribbon in the top right corner. Renders it's children onto a
  * ribbon background.
  *
- * The parent element needs to be `position: relative` for correct placement.
+ * The parent elements `position` needs to be anything other than `static`
+ * for correct placement.
  */
 export const Ribbon: React.FC<RibbonProps> = ({ children, color, ...rest }) => (
   <Wrapper {...rest}>
