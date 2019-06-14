@@ -12,7 +12,7 @@ export interface ButtonInputProps {
   disabled?: boolean;
   icon: React.ReactNode;
   placeholder?: string;
-  value: string;
+  value?: string;
 
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
