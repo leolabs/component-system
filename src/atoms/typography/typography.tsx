@@ -3,20 +3,46 @@ import React, { ReactHTML } from "react";
 
 import { neutral } from "../../theme/colors/colors";
 
+/** Props for Typography. */
 export interface TypographyProps {
+  /** The children to apply the formatting to. */
   children?: React.ReactNode;
+
+  /** A CSS class name to pass through. */
   className?: string;
+
+  /**
+   * Text color to use.
+   *
+   * If not set, the component will adapt to the theme color based on
+   * the configured variant.
+   */
   color?: string;
+
+  /**
+   * The element to wrap the contents with.
+   *
+   * If not set, will be determined based on the configured variant.
+   */
   element?: React.ComponentType<{ className?: string }> | keyof ReactHTML;
-  style?: any;
+
+  /** Optional inline styles to pass through. */
+  style?: React.CSSProperties;
+
+  /** The text variant to format according to. */
   variant: Variant;
 }
 
+/** CSS configuration and default element for a single typography variant. */
 export interface TypographyDefinition {
+  /** The CSS class name to apply to use this variant. */
   className: string;
+
+  /** The default element to wrap around the text. */
   element: keyof ReactHTML;
 }
 
+/** The text variant. */
 export type Variant =
   | "body-1"
   | "body-2"
@@ -30,6 +56,7 @@ export type Variant =
   | "status"
   | "title";
 
+/** Actual CSS definitions of the typography variants. */
 export const definitions: Record<Variant, TypographyDefinition> = {
   "body-1": {
     className: css`
@@ -156,6 +183,17 @@ export const definitions: Record<Variant, TypographyDefinition> = {
   },
 };
 
+/**
+ * Ensure consistent text formatting by rendering text in a couple of
+ * different, but fixed styles.
+ *
+ * @example
+ * ```
+ * <Typography variant="status">
+ *   Step 2 of 4
+ * </Typography>
+ * ```
+ */
 export const Typography: React.SFC<TypographyProps> = ({
   children,
   className,
