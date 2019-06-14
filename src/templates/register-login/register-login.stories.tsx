@@ -3,10 +3,12 @@ import { storiesOf } from "@storybook/react";
 import { styled } from "linaria/react";
 import React, { useState, useCallback } from "react";
 
-import { Typography } from "../../atoms/typography/typography";
 import { Button } from "../../atoms/button/button";
+import { CompanyIcon } from "../../atoms/icons/icons";
 import { Input } from "../../atoms/input/input";
+import { Typography } from "../../atoms/typography/typography";
 import { ContentWrapper } from "../../layout/content-wrapper/content-wrapper";
+import { Form } from "../../molecules/form/form";
 import { Header } from "../../molecules/header/header";
 import { Jumbo } from "../../molecules/jumbo/jumbo";
 import { noMargin } from "../../stories/helpers";
@@ -21,21 +23,6 @@ export interface RegisterLoginProps {
   onRegisterWithEmail?: (email: string) => void;
 }
 
-const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-
-  margin-top: 2rem;
-  padding: 0 2rem;
-
-  text-align: center;
-
-  > *:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-`;
-
 const LoginButton = styled(Button)`
   display: flex;
   align-items: center;
@@ -45,11 +32,8 @@ const LoginButton = styled(Button)`
   }
 `;
 
-const CompanyIcon = styled.img`
-  height: 1.5rem;
-  width: 1.5rem;
-
-  object-fit: cover;
+const DividerOr = styled(Typography)`
+  text-align: center;
 `;
 
 export const RegisterLogin: React.FC<RegisterLoginProps> = ({
@@ -84,7 +68,7 @@ export const RegisterLogin: React.FC<RegisterLoginProps> = ({
         <Typography variant="body-1">Sign in or register and manage your next event</Typography>
       </Jumbo>
 
-      <LoginForm onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <LoginButton color={indigo} onClick={onSignInWithApple} type="button">
           <CompanyIcon src={Apple} />
           <Typography variant="button">Sign in with Apple</Typography>
@@ -94,13 +78,13 @@ export const RegisterLogin: React.FC<RegisterLoginProps> = ({
           <Typography variant="button">Sign in with Google</Typography>
         </LoginButton>
 
-        <Typography variant="body-1">or</Typography>
+        <DividerOr variant="body-1">or</DividerOr>
 
         <Input placeholder="E-Mail" type="email" value={email} onChange={handleEmailChanged} />
         <Button primary type="submit">
           <Typography variant="button">Register</Typography>
         </Button>
-      </LoginForm>
+      </Form>
     </ContentWrapper>
   );
 };
