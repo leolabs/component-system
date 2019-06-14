@@ -3,8 +3,12 @@ import React from "react";
 
 import { Typography } from "../typography/typography";
 
+/** Props for the Ribbon component */
 export interface RibbonProps {
+  /** A CSS class name that will be applied to the root element. */
   className?: string;
+
+  /** The ribbon's background color. */
   color?: string;
 }
 
@@ -42,6 +46,12 @@ const Wrapper = styled.div`
   pointer-events: none;
 `;
 
+/**
+ * An overlay ribbon in the top right corner. Renders it's children onto a
+ * ribbon background.
+ *
+ * The parent element needs to be `position: relative` for correct placement.
+ */
 export const Ribbon: React.FC<RibbonProps> = ({ children, color, ...rest }) => (
   <Wrapper {...rest}>
     <Band color={color}>
