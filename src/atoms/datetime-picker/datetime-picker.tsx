@@ -1,4 +1,11 @@
-import React, { useMemo, useCallback, ChangeEvent, useState, useEffect } from "react";
+import React, {
+  useMemo,
+  useCallback,
+  ChangeEvent,
+  useState,
+  useEffect,
+  ComponentProps,
+} from "react";
 import { styled } from "linaria/react";
 import { neutral } from "../../theme/colors/colors";
 import { css } from "linaria";
@@ -9,6 +16,7 @@ export interface DateChangeEvent {
 
 export interface DatetimePickerProps {
   value?: Date;
+  id?: string;
   onDateChange?: (e: DateChangeEvent) => void;
 }
 
@@ -18,7 +26,7 @@ const Base = styled.div`
   width: 12rem;
 `;
 
-const Display = styled.label<{ className?: string; type?: "date" | "time" }>`
+const Display = styled.div<{ className?: string; type?: "date" | "time" } & ComponentProps<"div">>`
   position: relative;
   padding: 0.5rem 1rem;
   background: ${neutral[100]};
@@ -86,14 +94,26 @@ const unsupported = css`
   }
 `;
 
-export interface PseudoPickProps {
+export interface PseudoPickProps extends ComponentProps<"input"> {
   value: string;
   repr: string;
   type: "date" | "time";
   onChange?: (e: ChangeEvent) => void;
 }
 
-const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange }) => {
+const stopClickBubble = (e: React.MouseEvent) => "chrome" in window || e.preventDefault();
+
+const needsSpecialDesktop = !("ontouchstart" in window);
+const supportsInputType = (type: string) => {
+  if (type === "time" && needsSpecialDesktop) {
+    return false;
+  }
+  const input = document.createElement("input");
+  input.setAttribute("type", type);
+  return input.type == type;
+};
+
+const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange, ...cProps }) => {
   const supported = useMemo(() => supportsInputType(type), [type]);
 
   const [tempValue, setTempValue] = useState(value);
@@ -131,29 +151,20 @@ const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange })
   return (
     <Display className={!supported ? unsupported : ""} type={type}>
       <input
+        {...cProps}
         type={supported ? type : "text"}
         value={supported ? value : tempValue}
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      <span>{repr}</span>
+      <span aria-hidden>{repr}</span>
     </Display>
   );
 };
 
 const pad = (val: number) => (val < 10 ? "0" + String(val) : String(val));
 
-const needsSpecialDesktop = !("ontouchstart" in window);
-const supportsInputType = (type: string) => {
-  if (type === "time" && needsSpecialDesktop) {
-    return false;
-  }
-  const input = document.createElement("input");
-  input.setAttribute("type", type);
-  return input.type == type;
-};
-
-export const DatetimePicker: React.SFC<DatetimePickerProps> = ({ value, onDateChange }) => {
+export const DatetimePicker: React.SFC<DatetimePickerProps> = ({ value, onDateChange, id }) => {
   const d = value || new Date();
 
   const date = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -189,6 +200,7 @@ export const DatetimePicker: React.SFC<DatetimePickerProps> = ({ value, onDateCh
     <Base>
       <PseudoPick
         type="date"
+        id={id}
         value={date}
         repr={dateStr}
         onChange={useCallback(inputChanged("date"), [inputChanged])}
@@ -198,6 +210,7 @@ export const DatetimePicker: React.SFC<DatetimePickerProps> = ({ value, onDateCh
         value={time}
         repr={timeStr}
         onChange={useCallback(inputChanged("time"), [inputChanged])}
+        onClick={stopClickBubble}
       />
     </Base>
   );
