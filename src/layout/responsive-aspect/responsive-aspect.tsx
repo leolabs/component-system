@@ -19,8 +19,14 @@ const ResponsiveAspectOuter = styled.div<{ ratio: number }>`
   }
 `;
 
-export const ResponsiveAspect: typeof ResponsiveAspectOuter = props => (
-  <ResponsiveAspectOuter {...props}>
-    <ResponsiveAspectInner>{props.children}</ResponsiveAspectInner>
-  </ResponsiveAspectOuter>
-);
+export const ResponsiveAspect: typeof ResponsiveAspectOuter = props => {
+  if (props.ratio <= 0) {
+    throw new Error("invalid aspect ratio");
+  }
+
+  return (
+    <ResponsiveAspectOuter {...props}>
+      <ResponsiveAspectInner>{props.children}</ResponsiveAspectInner>
+    </ResponsiveAspectOuter>
+  );
+};
