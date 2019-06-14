@@ -56,7 +56,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 --quiet",
-    "build-storybook": "tsc --noEmit && build-storybook",
+    "build-storybook": "tsc --noEmit && build-storybook --quiet",
     "prepublishOnly": "yarn build",
     "build": "tsc --noEmit && rollup -c"
   }
