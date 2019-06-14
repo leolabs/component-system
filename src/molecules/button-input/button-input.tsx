@@ -13,6 +13,7 @@ export interface ButtonInputProps {
   icon: React.ReactNode;
   placeholder?: string;
   value?: string;
+  type?: string;
 
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
@@ -69,12 +70,19 @@ export const ButtonInput: React.SFC<ButtonInputProps> = ({
   icon,
   placeholder,
   value,
+  type,
 
   onChange,
   onSubmit,
 }) => (
   <Form className={className} onSubmit={onSubmit}>
-    <Input disabled={disabled} onChange={onChange} placeholder={placeholder} value={value} />
+    <Input
+      disabled={disabled}
+      onChange={onChange}
+      placeholder={placeholder}
+      value={value}
+      type={type}
+    />
     <Btn color={color} disabled={disabled || !canSubmit} type="submit">
       {icon}
     </Btn>
