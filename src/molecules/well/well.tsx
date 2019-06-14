@@ -22,6 +22,17 @@ const Wrapper = styled.div<WellProps & { style: Record<string, string> }>`
   }
 `;
 
+/**
+ * A simple well that can contain content.
+ *
+ * @example
+ * ```
+ * <Well>
+ *   <Typography variant="heading-1">A Title</Typography>
+ *   <Typography variant="body-1">This is some content.</Typography>
+ * </Well>
+ * ```
+ */
 export const Well: React.FC<WellProps> = ({ children, className, color, primary }) => (
   <Wrapper
     className={className}
