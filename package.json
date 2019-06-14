@@ -46,6 +46,7 @@
     "rollup-plugin-css-only": "^1.0.0",
     "rollup-plugin-typescript2": "^0.21.1",
     "ts-jest": "^24.0.2",
+    "typedoc": "next",
     "typescript": "^3.5.1"
   },
   "dependencies": {
@@ -58,7 +59,8 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 --quiet",
-    "build-storybook": "tsc --noEmit && build-storybook --quiet",
+    "build-storybook": "tsc --noEmit && build-storybook --quiet && yarn build-typedoc",
+    "build-typedoc": "typedoc --out storybook-static/typedoc --exclude \"**/*.stories.tsx,**/index.ts\" --ignoreCompilerErrors --excludeNotExported src/",
     "lint": "eslint \"src/**/*.ts?\"",
     "prepublishOnly": "yarn build",
     "build": "tsc --noEmit && rollup -c"
