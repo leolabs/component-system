@@ -3,12 +3,12 @@ import React from "react";
 
 import { neutral } from "../../theme/colors/colors";
 
-export interface JumboProps {
+export interface JumboProps extends React.ComponentProps<"div"> {
   background?: React.ReactNode;
-  className?: string;
+  backgroundColor?: string;
 }
 
-const Base = styled.div`
+const Base = styled.div<JumboProps>`
   box-sizing: border-box;
   height: 100%;
 
@@ -38,7 +38,7 @@ const Base = styled.div`
   }
 `;
 
-const Overlay = styled.div`
+const Overlay = styled.div<{ hasBg: boolean; backgroundColor?: string }>`
   content: "";
   display: block;
 
@@ -51,8 +51,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: ${(props: { hasBg: boolean }) =>
-    props.hasBg ? "var(--color-500)" : neutral[100]};
+  background-color: ${p => (p.hasBg ? "var(--color-500)" : p.backgroundColor || neutral[100])};
   opacity: 0.5;
 `;
 
@@ -69,8 +68,8 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Jumbo: React.FC<JumboProps> = ({ background, children, className }) => (
-  <Base className={className}>
+export const Jumbo: typeof Base = ({ background, children, ...props }) => (
+  <Base {...props}>
     {typeof background === "string" ? <img src={background} alt="Jumbo" /> : background}
     <Overlay hasBg={Boolean(background)} />
 
