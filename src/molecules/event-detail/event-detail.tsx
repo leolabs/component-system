@@ -45,6 +45,15 @@ const Column = styled.div`
 
 /**
  * A 2-line event detail indicator with an icon.
+ *
+ * Automatically adjusts text formatting using `Typography`.
+ *
+ * @example
+ * <EventDetail
+ *  icon={<FeatherIcon icon={Clock} />}
+ *  primary="Big celebration today"
+ *  secondary="at my house"
+ * />
  */
 export const EventDetail: React.FC<EventDetailProps> = ({ color, icon, primary, secondary }) => (
   <Base>
