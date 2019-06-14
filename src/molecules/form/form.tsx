@@ -64,6 +64,11 @@ export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
   </Base>
 );
 
-export const Form: React.ComponentType<ComponentProps<"form">> = props => (
+export interface FormProps extends ComponentProps<'form'> {
+  as?: React.ReactType;
+  marginMult?: number;
+}
+
+export const Form: React.ComponentType<FormProps> = props => (
   <Article as="form" {...props} />
 );
