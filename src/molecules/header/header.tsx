@@ -40,11 +40,23 @@ const ChildWrapper = styled.div`
   height: 100vh;
 `;
 
-export const Header: React.FC<React.ComponentProps<typeof StyledHeader>> = ({
-  children,
-  ...cProps
-}) => (
-  <StyledHeader {...cProps}>
+/**
+ * A header with a title and menu icon.
+ *
+ * Any children will be placed below the header but still fixed to the top.
+ * The header doesn't accept any special arguments for now.
+ *
+ * The header will always be placed at the top of the page. If you want to use it in
+ * combination with content, consider using a `ContentWrapper`.
+ *
+ * @example
+ * <>
+ *   <Header />
+ *   <ContentWrapper>Content goes here</ContentWrapper>
+ * </>
+ */
+export const Header: typeof StyledHeader = ({ children, ...props }) => (
+  <StyledHeader {...props}>
     <Typography variant="title">Wevent</Typography>
     <Button noBackground primary>
       <FeatherIcon icon={Menu} />
