@@ -43,7 +43,7 @@ const selectColor = (variant: number) => (props: ButtonProps) =>
     ? props.color[variant]
     : neutral[variant];
 
-const StyledButton = styled.button<ButtonProps & { className: string }>`
+const StyledButton = styled.button<ButtonProps>`
   /* theming */
   background: ${p => (p.noBackground ? "none" : selectColor(100)(p))};
   color: ${p => (p.noBackground ? selectColor(500) : selectColor(800))(p)};
