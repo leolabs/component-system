@@ -27,7 +27,7 @@ const Btn = styled(Button)`
   transition: background-color ${shortTime} ease;
 `;
 
-const Form = styled.form`
+const Form = styled.form<React.ComponentProps<"form"> & { bgColor?: Color }>`
   border: 2px solid ${neutral[100]};
   border-radius: 2rem;
 
@@ -39,11 +39,11 @@ const Form = styled.form`
   transition: border-color ${shortTime} ease;
 
   :focus-within {
-    border-color: var(--color-300);
+    border-color: ${({ bgColor }) => (bgColor ? bgColor[300] : "var(--color-300)")};
   }
 
   :focus-within ${Btn as any}:not(:disabled) {
-    background-color: var(--color-300);
+    border-color: ${({ bgColor }) => (bgColor ? bgColor[300] : "var(--color-300)")};
   }
 `;
 
@@ -75,7 +75,7 @@ export const ButtonInput: React.SFC<ButtonInputProps> = ({
   onChange,
   onSubmit,
 }) => (
-  <Form className={className} onSubmit={onSubmit}>
+  <Form className={className} bgColor={color} onSubmit={onSubmit}>
     <Input
       disabled={disabled}
       onChange={onChange}
