@@ -6,9 +6,17 @@ import { primary } from "../../theme/colors/colors";
 import { cx, css } from "linaria";
 import { Article } from "../../layout/article/article";
 
+/**
+ * Properties for a `FormField`.
+ */
 export interface FormFieldProps {
+  /** The field's label */
   label?: string;
+
+  /** The field's icon  */
   icon?: IconNode;
+
+  /** Position the input in the same line as the label */
   inline?: boolean;
 }
 
@@ -47,6 +55,24 @@ const labelStyle = css`
   margin-right: 1rem;
 `;
 
+/**
+ * A form field.
+ *
+ * This component is best used as a child of `Form`. It provides an icon and a label
+ * for input elements.
+ *
+ * @example
+ * <FormField label="First name" icon={<FeatherIcon icon={User} />} inline>
+ *   <Input placeholder="Your first name" />
+ * </FormField>
+ *
+ * @example
+ * <Form>
+ *   <FormField label="About" icon={<FeatherIcon icon={Info} />}>
+ *     <Input multiline placeholder="Write something..." />
+ *   </FormField>
+ * </Form>
+ */
 export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
   label,
   icon,
@@ -64,11 +90,25 @@ export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
   </Base>
 );
 
-export interface FormProps extends ComponentProps<'form'> {
+export interface FormProps extends ComponentProps<"form"> {
   as?: React.ReactType;
   marginMult?: number;
 }
 
-export const Form: React.ComponentType<FormProps> = props => (
-  <Article as="form" {...props} />
-);
+/**
+ * A form container that provides basic padding and margins between elements.
+ *
+ * @example
+ * <Form>
+ *   <FormField label="First name" icon={<FeatherIcon icon={User} />} inline>
+ *     <Input placeholder="Your first name" />
+ *   </FormField>
+ *   <FormField label="Last name" inline>
+ *     <Input placeholder="Your last name" />
+ *   </FormField>
+ *   <FormField label="About" icon={<FeatherIcon icon={Info} />}>
+ *     <Input multiline placeholder="Write something..." />
+ *   </FormField>
+ * </Form>
+ */
+export const Form: React.ComponentType<FormProps> = props => <Article as="form" {...props} />;
