@@ -6,11 +6,16 @@ import { FeatherIcon } from "../../atoms/icons/icons";
 import { green, yellow, red } from "../../theme/colors/colors";
 import { CheckCircle, XCircle, HelpCircle } from "react-feather";
 
+/** Props for the RSVP component. */
 export interface RsvpProps {
+  /** Fired when the response value changes. */
   onChange?: (newValue: Response) => void;
+
+  /** The response value. Pass `null` for unselected. */
   value?: Response | null;
 }
 
+/** The RSVP response. */
 export type Response = "yes" | "no" | "maybe";
 
 const Wrapper = styled.div`
@@ -26,6 +31,7 @@ const Bottom = styled.div`
   margin-top: 1rem;
 `;
 
+/** An RSVP chooser with three buttons. */
 export const Rsvp: React.SFC<RsvpProps> = ({ onChange, value }) => {
   const handleYesClicked = useCallback(() => onChange && onChange("yes"), [onChange]);
   const handleMaybeClicked = useCallback(() => onChange && onChange("maybe"), [onChange]);
