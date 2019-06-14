@@ -7,7 +7,7 @@ import { shortTime } from "../../theme/timing/timing";
 import { iconCl } from "../icons/icons";
 
 /** Props for the button component. */
-export interface ButtonProps {
+export interface ButtonProps extends Omit<React.ComponentProps<"button">, "color"> {
   /** Button contents. Can be text, icons, typographies, etc. */
   children?: React.ReactNode[] | React.ReactNode;
 
@@ -158,8 +158,9 @@ const noBackgroundDisabled = css`
  * </Button>
  * ```
  */
-export const Button = (props: ButtonProps & Omit<React.ComponentProps<"button">, "color">) => (
+export const Button: typeof StyledButton = props => (
   <StyledButton
+    type="button"
     {...props}
     className={cx(
       props.className,
