@@ -37,6 +37,22 @@ const StyledTemplateChooser = styled.div`
   }
 `;
 
+/**
+ * A component that can contain multiple `TemplateIcon`s.
+ *
+ * @example
+ * <TemplateChooser>
+ *   <TemplateIcon>
+ *     <FontAwesomeIcon icon={faBirthdayCake} color={red} />
+ *   </TemplateIcon>
+ *   <TemplateIcon>
+ *     <FontAwesomeIcon icon={faSun} color={yellow} />
+ *   </TemplateIcon>
+ *   <TemplateIcon>
+ *     <FontAwesomeIcon icon={faBike} color={green} />
+ *   </TemplateIcon>
+ * </TemplateChooser>
+ */
 export const TemplateChooser: React.FC<React.ComponentProps<typeof StyledTemplateChooser>> = ({
   children,
   ...props
