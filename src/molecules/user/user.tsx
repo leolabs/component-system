@@ -32,24 +32,22 @@ const Detail = styled.div`
   margin: 0 1rem;
 `;
 
-export const User: React.SFC<UserProps> = ({ data, onDelete, onShare }) => {
-  return (
-    <Base>
-      <Avatar {...data} />
-      <Detail>
-        <Typography variant="detail" color={neutral[900]}>
-          {data.name}
-        </Typography>
-        <Typography variant="body-2" color={neutral[400]}>
-          {data.status}
-        </Typography>
-      </Detail>
-      <Button noBackground onClick={onDelete}>
-        <FeatherIcon icon={Trash} />
-      </Button>
-      <Button noBackground primary onClick={onShare}>
-        <FeatherIcon icon={Share} />
-      </Button>
-    </Base>
-  );
-};
+export const User: React.SFC<UserProps> = ({ data, onDelete, onShare }) => (
+  <Base>
+    <Avatar {...data} />
+    <Detail>
+      <Typography variant="detail" color={neutral[900]}>
+        {data.name}
+      </Typography>
+      <Typography variant="body-2" color={neutral[400]}>
+        {data.status}
+      </Typography>
+    </Detail>
+    <Button noBackground onClick={onDelete}>
+      <FeatherIcon icon={Trash} />
+    </Button>
+    <Button noBackground primary onClick={onShare}>
+      <FeatherIcon icon={Share} />
+    </Button>
+  </Base>
+);
