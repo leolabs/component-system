@@ -25,6 +25,7 @@ import { Calendar, MapPin } from "react-feather";
 import { Article } from "../../layout/article/article";
 import { Theme } from "../../theme/theme-context/theme-context";
 import { Well } from "../../molecules/well/well";
+import { Rsvp } from "../../molecules/rsvp/rsvp";
 
 const templates = [
   {
@@ -88,6 +89,7 @@ Come party hats and balloons will make your day fun, so we want you here when th
                   Guest Name
                 </Typography>
               </Well>
+              <Rsvp />
             </Article>
           </Theme>
           <Overlay>
