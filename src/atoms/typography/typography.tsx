@@ -24,6 +24,7 @@ export type Variant =
   | "label"
   | "heading-1"
   | "heading-2"
+  | "heading-3"
   | "heading-jumbo"
   | "ribbon"
   | "status"
@@ -96,6 +97,17 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       line-height: 1.1;
     `,
     element: "h2",
+  },
+  "heading-3": {
+    className: css`
+      margin: 0;
+      color: var(--color-700);
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.1;
+    `,
+    element: "h3",
   },
   "heading-jumbo": {
     className: css`

@@ -9,9 +9,7 @@ import { Well } from "./well";
 storiesOf("Molecules / Well", module)
   .add("primary", () => (
     <Well primary>
-      <Typography variant="detail" element="p">
-        Well Header
-      </Typography>
+      <Typography variant="heading-3">Well Header</Typography>
       <Typography variant="body-2" element="p">
         Long long long well Body lorem ipsum sit dolor amet
       </Typography>
@@ -19,9 +17,7 @@ storiesOf("Molecules / Well", module)
   ))
   .add("primary with color", () => (
     <Well color={green}>
-      <Typography variant="detail" element="p">
-        Well Header
-      </Typography>
+      <Typography variant="heading-3">Well Header</Typography>
       <Typography variant="body-2" element="p">
         Long long long well Body lorem ipsum sit dolor amet
       </Typography>
@@ -29,9 +25,7 @@ storiesOf("Molecules / Well", module)
   ))
   .add("not primary", () => (
     <Well>
-      <Typography variant="detail" element="p">
-        Well Header
-      </Typography>
+      <Typography variant="heading-3">Well Header</Typography>
       <Typography variant="body-2" element="p">
         Long long long well Body lorem ipsum sit dolor amet
       </Typography>
