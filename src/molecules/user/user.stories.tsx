@@ -38,8 +38,9 @@ storiesOf("Molecules / User", module)
   ))
   .add("multiple", () => (
     <List>
-      {users.map((user: UserData) => (
+      {users.map((user: UserData, i) => (
         <User
+          key={i}
           data={user}
           onDelete={action("delete").bind(null, user)}
           onShare={action("share").bind(null, user)}

@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   pointer-events: none;
 `;
 
-export const Ribbon: React.FC<RibbonProps> = ({ className, children, color, ...rest }) => (
+export const Ribbon: React.FC<RibbonProps> = ({ children, color, ...rest }) => (
   <Wrapper {...rest}>
     <Band color={color}>
       <Typography variant="ribbon">{children}</Typography>

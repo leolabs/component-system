@@ -7,7 +7,7 @@ import { shortTime } from "../../theme/timing/timing";
 import { iconCl } from "../icons/icons";
 
 export interface ButtonProps {
-  children?: Array<React.ReactNode> | React.ReactNode;
+  children?: React.ReactNode[] | React.ReactNode;
   color?: Color;
   disabled?: boolean;
   noBackground?: boolean;

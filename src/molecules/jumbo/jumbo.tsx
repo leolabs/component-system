@@ -71,7 +71,7 @@ const Wrapper = styled.div`
 
 export const Jumbo: React.FC<JumboProps> = ({ background, children, className }) => (
   <Base className={className}>
-    {typeof background === "string" ? <img src={background} /> : background}
+    {typeof background === "string" ? <img src={background} alt="Jumbo" /> : background}
     <Overlay hasBg={Boolean(background)} />
 
     <Wrapper>{children}</Wrapper>

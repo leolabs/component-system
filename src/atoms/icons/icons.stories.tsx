@@ -52,13 +52,13 @@ storiesOf("Atoms / Icons", module)
     <>
       <Icons>
         {Object.entries(featherIcons).map(([name, icon]) => (
-          <Icon>
+          <Icon key={name}>
             <FeatherIcon icon={icon} />
             <span>{name}</span>
           </Icon>
         ))}
       </Icons>
-      <a href="https://feathericons.com/" target="_blank">
+      <a href="https://feathericons.com/" target="_blank" rel="noopener noreferrer">
         More Feather Icons
       </a>
     </>
@@ -67,13 +67,13 @@ storiesOf("Atoms / Icons", module)
     <>
       <Icons>
         {Object.entries(faIcons).map(([name, icon]) => (
-          <Icon>
+          <Icon key={name}>
             <FontAwesomeIcon icon={icon as any} />
             <span>{name}</span>
           </Icon>
         ))}
       </Icons>
-      <a href="https://fontawesome.com/icons" target="_blank">
+      <a href="https://fontawesome.com/icons" target="_blank" rel="noopener noreferrer">
         More FontAwesome Icons
       </a>
     </>

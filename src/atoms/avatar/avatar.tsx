@@ -69,9 +69,9 @@ export const Avatar: React.FC<AvatarProps> = ({ image, name, status }) => (
           x="20"
           y="19"
           fill="white"
-          font-size="18"
-          text-anchor="middle"
-          alignment-baseline="central"
+          fontSize="18"
+          textAnchor="middle"
+          alignmentBaseline="central"
         >
           {generateInitials(name)}
         </text>
@@ -79,7 +79,7 @@ export const Avatar: React.FC<AvatarProps> = ({ image, name, status }) => (
     )}
 
     <Svg viewBox="0 0 40 40">
-      <circle cx="34" cy="34" r="6" stroke="white" stroke-width="1" fill={statusColors[status]} />
+      <circle cx="34" cy="34" r="6" stroke="white" strokeWidth="1" fill={statusColors[status]} />
     </Svg>
   </Wrapper>
 );

@@ -51,11 +51,13 @@ const ForegroundColor = styled.div<{ color: string }>`
 storiesOf("Theme / Colors", module).add("Color Swatches", () => (
   <>
     {Object.keys(colors).map(c => (
-      <div>
+      <div key={c}>
         <h2>{c}</h2>
         <Colors>
           {Object.keys(colors[c]).map(color => (
-            <Color color={colors[c][color]}>{color}</Color>
+            <Color key={color} color={colors[c][color]}>
+              {color}
+            </Color>
           ))}
           <ColorCombination backgroundColor={colors[c][100]}>
             <ForegroundColor color={colors[c][900]} />

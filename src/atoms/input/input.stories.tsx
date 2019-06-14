@@ -12,7 +12,7 @@ storiesOf("Atoms / Input", module)
   ))
   .add("form", () => (
     <>
-      <Input placeholder="Email" autoFocus />
+      <Input placeholder="Email" />
       <Input placeholder="Password" type="password" />
     </>
   ));

@@ -47,8 +47,12 @@ const StyleApplier: React.FC<{ styleClass: string }> = ({ styleClass, children }
   return <>{children}</>;
 };
 
-const applyStyle = (styleClass: string) => (story: RenderFunction) => {
-  return <StyleApplier styleClass={styleClass}>{story()}</StyleApplier>;
+const applyStyle = (styleClass: string) => {
+  const ApplyStyle = (story: RenderFunction) => {
+    return <StyleApplier styleClass={styleClass}>{story()}</StyleApplier>;
+  };
+
+  return ApplyStyle;
 };
 
 const bodyMarginStyles = css`

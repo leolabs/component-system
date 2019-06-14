@@ -43,7 +43,12 @@ const ControlledTemplateChooser: React.FC = () => {
   return (
     <TemplateChooser>
       {templates.map((t, i) => (
-        <TemplateIcon selected={selected === i} color={t.color} onClick={() => setSelected(i)}>
+        <TemplateIcon
+          key={i}
+          selected={selected === i}
+          color={t.color}
+          onClick={() => setSelected(i)}
+        >
           <FontAwesomeIcon icon={t.icon} />
         </TemplateIcon>
       ))}

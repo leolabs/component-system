@@ -5,7 +5,7 @@ import { css, cx } from "linaria";
 interface ThemeProps {
   className?: string;
   color?: Color;
-  style?: any;
+  style?: React.CSSProperties;
 }
 
 const themeCss = css`
@@ -13,14 +13,11 @@ const themeCss = css`
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 `;
 
-const createVariables = (color: Color) =>
-  Object.keys(color).reduce(
-    (acc, cur) => {
-      acc[`--color-${cur}`] = color[cur];
-      return acc;
-    },
-    {} as { [k: string]: string },
-  );
+const createVariables = (color: Color): { [k: string]: string } =>
+  Object.keys(color).reduce((acc, cur) => {
+    acc[`--color-${cur}`] = color[cur];
+    return acc;
+  }, {});
 
 export const Theme: React.FC<ThemeProps> = ({ className, color, children, style }) => {
   const themeStyle = { ...style, ...(color ? createVariables(color) : createVariables(primary)) };
