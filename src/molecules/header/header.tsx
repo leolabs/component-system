@@ -27,7 +27,7 @@ const StyledHeader = styled.header`
 
 export const Header: React.FC<React.ComponentProps<typeof StyledHeader>> = props => (
   <StyledHeader {...props}>
-    <Typography variant="title">Mevent</Typography>
+    <Typography variant="title">Wevent</Typography>
     <Button noBackground primary>
       <FeatherIcon icon={Menu} />
     </Button>
