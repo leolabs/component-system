@@ -4,6 +4,7 @@ import { styled } from "linaria/react";
 import { Typography } from "../../atoms/typography/typography";
 import { primary } from "../../theme/colors/colors";
 import { cx, css } from "linaria";
+import { Article } from "../../layout/article/article";
 
 export interface FormFieldProps {
   label?: string;
@@ -63,22 +64,4 @@ export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
   </Base>
 );
 
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-
-  padding: 1rem;
-
-  > * {
-    margin-bottom: 0.5rem;
-
-    &.block {
-      margin-top: 1rem;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-`;
+export const Form: typeof Article = props => <Article as="form" {...props} />;
