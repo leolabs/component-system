@@ -1,5 +1,22 @@
 import { styled } from "linaria/react";
 
+/**
+ * An overlay component that aligns its content on top and at the bottom
+ * of the page.
+ *
+ * @example
+ * ```
+ * +---------+
+ * |         |
+ * |         |
+ * | Content |
+ * |         |
+ * |         |
+ * |~~~~~~~~~|
+ * | Overlay |
+ * +---------+
+ * ```
+ */
 export const Overlay = styled.div<{ hidden?: boolean }>`
   display: block;
   position: fixed;
