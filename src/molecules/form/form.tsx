@@ -64,9 +64,13 @@ export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
 );
 
 export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
   padding: 1rem;
 
-  > ${Base as any} {
+  > * {
     margin-bottom: 0.5rem;
 
     &.block {
