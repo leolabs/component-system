@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 import { IconNode } from "../../atoms/icons/icons";
 import { styled } from "linaria/react";
 import { Typography } from "../../atoms/typography/typography";
@@ -64,4 +64,6 @@ export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
   </Base>
 );
 
-export const Form: typeof Article = props => <Article as="form" {...props} />;
+export const Form: React.ComponentType<ComponentProps<"form">> = props => (
+  <Article as="form" {...props} />
+);
