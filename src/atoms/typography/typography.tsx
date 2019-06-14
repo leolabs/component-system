@@ -21,7 +21,6 @@ export interface TypographyDefinition {
 export type Variant =
   | "body-1"
   | "body-2"
-  | "button"
   | "detail"
   | "label"
   | "heading-1"
@@ -51,17 +50,6 @@ export const definitions: Record<Variant, TypographyDefinition> = {
       font-weight: normal;
       letter-spacing: 0;
       line-height: 1.2;
-    `,
-    element: "span",
-  },
-  button: {
-    className: css`
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0;
-      line-height: 1.2;
-      text-transform: uppercase;
     `,
     element: "span",
   },

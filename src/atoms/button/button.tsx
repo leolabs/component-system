@@ -68,7 +68,12 @@ const StyledButton = styled.button<ButtonProps>`
   margin: 0;
   height: 2.5rem;
 
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.2;
   text-transform: uppercase;
+  white-space: nowrap;
 
   transition: background-color ${shortTime}, color ${shortTime};
 
@@ -138,8 +143,8 @@ const noBackgroundDisabled = css`
 /**
  * A colorable, selectable button.
  *
- * When showing text inside the button, use this together with a Typography
- * on variant `button`.
+ * When inserting multiple children use html
+ * elements around text to ensure spacing
  *
  * With text:
  * @example

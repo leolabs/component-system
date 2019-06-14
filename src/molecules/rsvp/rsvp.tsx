@@ -36,17 +36,17 @@ export const Rsvp: React.SFC<RsvpProps> = ({ onChange, value }) => {
     <Wrapper>
       <Button color={green} onClick={handleYesClicked} selected={value === "yes"}>
         <FeatherIcon icon={CheckCircle} />
-        <Typography variant="button">Yes</Typography>
+        <span>Yes</span>
       </Button>
 
       <Bottom>
         <Button color={yellow} onClick={handleMaybeClicked} selected={value === "maybe"}>
           <FeatherIcon icon={HelpCircle} />
-          <Typography variant="button">Maybe</Typography>
+          <span>Maybe</span>
         </Button>
         <Button color={red} onClick={handleNoClicked} selected={value === "no"}>
           <FeatherIcon icon={XCircle} />
-          <Typography variant="button">No</Typography>
+          <span>No</span>
         </Button>
       </Bottom>
     </Wrapper>

@@ -47,14 +47,14 @@ export const Stepper: React.FC<StepperProps & Omit<React.ComponentProps<"div">, 
     ) : null}
     {step < maxStep ? (
       <StyledButton primary onClick={() => onChange && onChange(step + 1)}>
-        <Typography variant="button">Next Step</Typography>
+        <span>Next Step</span>
         <FeatherIcon icon={ChevronRight} />
       </StyledButton>
     ) : null}
     {step === maxStep ? (
       <StyledButton primary onClick={() => onFinish && onFinish()}>
         <FeatherIcon icon={Check} />
-        <Typography variant="button">Finish</Typography>
+        <span>Finish</span>
       </StyledButton>
     ) : null}
   </StyledStepper>

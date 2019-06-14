@@ -7,7 +7,6 @@ storiesOf("Atoms / Typography", module).add("variants", () =>
   [
     "body-1",
     "body-2",
-    "button",
     "detail",
     "label",
     "heading-1",

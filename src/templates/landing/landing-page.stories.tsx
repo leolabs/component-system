@@ -40,7 +40,7 @@ storiesOf("Templates / Landing Page", module)
         </Typography>
         <Button onClick={action("Create Event clicked")} primary>
           <FeatherIcon icon={PlusCircle} />
-          <Typography variant="button">Create an event</Typography>
+          <span>Create an event</span>
         </Button>
       </Jumbo>
 

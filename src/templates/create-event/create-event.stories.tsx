@@ -30,7 +30,7 @@ const EndTime: React.SFC = () => {
     <FormField inline>
       <Button noBackground onClick={() => setEnabled(true)}>
         <FeatherIcon icon={Plus} />
-        <Typography variant="button">Add end time</Typography>
+        <span>Add end time</span>
       </Button>
     </FormField>
   );

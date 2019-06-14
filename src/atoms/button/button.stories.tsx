@@ -5,7 +5,6 @@ import { Input } from "../input/input";
 import { text } from "@storybook/addon-knobs";
 import { FeatherIcon } from "../icons/icons";
 import { ChevronRight, ChevronLeft } from "react-feather";
-import { Typography } from "../typography/typography";
 import { green, yellow } from "../../theme/colors/colors";
 import { Form } from "../../molecules/form/form";
 
@@ -15,28 +14,24 @@ storiesOf("Atoms / Button", module)
   .add("disabled", () => <Button disabled>{text("content", "Click me!")}</Button>)
   .add("custom color", () => (
     <>
-      <Button color={green}>
-        <Typography variant="button">{text("content", "Click me!")}</Typography>
-      </Button>
-      <Button color={yellow}>
-        <Typography variant="button">{text("content", "Click me!")}</Typography>
-      </Button>
+      <Button color={green}>{text("content", "Click me!")}</Button>
+      <Button color={yellow}>{text("content", "Click me!")}</Button>
     </>
   ))
   .add("with icon", () => (
     <>
       <Button primary>
         <FeatherIcon icon={ChevronRight} />
-        <Typography variant="button">{text("content", "Next")}</Typography>
+        <span>{text("content", "Next")}</span>
       </Button>
       <Button primary>
-        <Typography variant="button">{text("content", "Next")}</Typography>
+        <span>{text("content", "Next")}</span>
         <FeatherIcon icon={ChevronRight} />
       </Button>
       <Button primary>
-        <Typography variant="button">{text("content", "Next")}</Typography>
+        <span>{text("content", "Next")}</span>
         <FeatherIcon icon={ChevronRight} />
-        <Typography variant="button">More text</Typography>
+        <span>More text</span>
       </Button>
     </>
   ))
