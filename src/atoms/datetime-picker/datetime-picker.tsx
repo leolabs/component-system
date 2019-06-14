@@ -101,6 +101,8 @@ export interface PseudoPickProps extends ComponentProps<"input"> {
   onChange?: (e: ChangeEvent) => void;
 }
 
+const stopClickBubble = (e: React.MouseEvent) => "chrome" in window || e.preventDefault();
+
 const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange, ...cProps }) => {
   const supported = useMemo(() => supportsInputType(type), [type]);
 
@@ -208,6 +210,7 @@ export const DatetimePicker: React.SFC<DatetimePickerProps> = ({ value, onDateCh
         value={time}
         repr={timeStr}
         onChange={useCallback(inputChanged("time"), [inputChanged])}
+        onClick={stopClickBubble}
       />
     </Base>
   );
