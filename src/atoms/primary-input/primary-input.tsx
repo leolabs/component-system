@@ -2,6 +2,9 @@ import { styled } from "linaria/react";
 import { neutral, primary } from "../../theme/colors/colors";
 import { shortTime } from "../../theme/timing/timing";
 
+/**
+ * An input without border, for creating an "editable page title".
+ */
 export const PrimaryInput = styled.input`
   display: block;
   font-size: 1.5rem;
