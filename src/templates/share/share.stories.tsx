@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { storiesOf } from "@storybook/react";
 import { ContentWrapper } from "../../layout/content-wrapper/content-wrapper";
 import { Header } from "../../molecules/header/header";
@@ -14,7 +14,7 @@ import { neutral } from "../../theme/colors/colors";
 import { action } from "@storybook/addon-actions";
 import { ButtonInput } from "../../molecules/button-input/button-input";
 import { Form } from "../../molecules/form/form";
-import { List, ListItem } from "../../layout/list/list";
+import { List } from "../../layout/list/list";
 import { UserData, User } from "../../molecules/user/user";
 
 const users: UserData[] = [
