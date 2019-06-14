@@ -1,7 +1,8 @@
-import React, { ComponentProps } from "react";
-import { Icon as Feather, Props as FeatherProps } from "react-feather";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { css, cx } from "linaria";
+import { styled } from "linaria/react";
+import React, { ComponentProps } from "react";
+import { Icon as Feather, Props as FeatherProps } from "react-feather";
 
 export const iconCl = css`
   display: inline-block;
@@ -30,5 +31,12 @@ export const FeatherIcon: React.FC<{ icon: Feather } & FeatherProps> = ({
   icon: Icon,
   ...props
 }) => <Icon size="" {...props} className={cx(iconCl, className)} />;
+
+export const CompanyIcon = styled.img`
+  height: 1.5em;
+  width: 1.5em;
+
+  object-fit: cover;
+`;
 
 export type IconNode = React.ReactElement<typeof FeatherIcon | typeof FontAwesomeIcon>;

@@ -51,24 +51,26 @@ export const FormField: React.FC<React.ComponentProps<typeof Base>> = ({
   icon,
   inline = false,
   children,
-}) => {
-  return (
-    <Base inline={inline} className={cx(!inline && "block")}>
-      <IconWrapper>{icon}</IconWrapper>
-      <Typography as="span" variant="label" className={labelStyle}>
-        {label}
-      </Typography>
-      <InputWrapper className={!inline ? nonInlineInputs : ""} inline={inline}>
-        {children}
-      </InputWrapper>
-    </Base>
-  );
-};
+}) => (
+  <Base inline={inline} className={cx(!inline && "block")}>
+    <IconWrapper>{icon}</IconWrapper>
+    <Typography as="span" variant="label" className={labelStyle}>
+      {label}
+    </Typography>
+    <InputWrapper className={!inline ? nonInlineInputs : ""} inline={inline}>
+      {children}
+    </InputWrapper>
+  </Base>
+);
 
 export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
   padding: 1rem;
 
-  > ${Base as any} {
+  > * {
     margin-bottom: 0.5rem;
 
     &.block {
