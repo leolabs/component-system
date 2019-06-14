@@ -25,11 +25,30 @@ const StyledHeader = styled.header`
   }
 `;
 
-export const Header: React.FC<React.ComponentProps<typeof StyledHeader>> = props => (
-  <StyledHeader {...props}>
+/**
+ * Ugly hack to support having additional
+ * content fixed to the top.
+ *
+ * Feel free to refactor.
+ */
+const ChildWrapper = styled.div`
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+`;
+
+export const Header: React.FC<React.ComponentProps<typeof StyledHeader>> = ({
+  children,
+  ...cProps
+}) => (
+  <StyledHeader {...cProps}>
     <Typography variant="title">Wevent</Typography>
     <Button noBackground primary>
       <FeatherIcon icon={Menu} />
     </Button>
+    {children && <ChildWrapper>{children}</ChildWrapper>}
   </StyledHeader>
 );
