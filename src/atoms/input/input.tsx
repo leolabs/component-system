@@ -48,8 +48,12 @@ const multiline = css`
   resize: none;
 `;
 
-export const Input: React.SFC<InputProps> = props =>
-  props.multiline ? (
+export const Input: React.SFC<InputProps> = props => {
+  if (typeof props.rows === "number" && props.rows <= 0) {
+    throw new Error("rows must be > 0");
+  }
+
+  return props.multiline ? (
     <StyledInput
       as="textarea"
       className={cx(multiline, props.className)}
@@ -59,3 +63,4 @@ export const Input: React.SFC<InputProps> = props =>
   ) : (
     <StyledInput {...props} />
   );
+};
