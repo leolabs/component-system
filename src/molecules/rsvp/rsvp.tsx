@@ -10,7 +10,7 @@ import { green, yellow, red } from "../../theme/colors/colors";
 /** Props for the RSVP component. */
 export interface RsvpProps {
   /** Fired when the response value changes. */
-  onChange?: (newValue: Response) => void;
+  onChange?: (newValue: RsvpStatus) => void;
 
   /** The response value. Pass `null` for unselected. */
   value?: RsvpStatus | null;
@@ -31,13 +31,13 @@ const Bottom = styled.div`
 
 /** An RSVP chooser with three buttons. */
 export const Rsvp: React.SFC<RsvpProps> = ({ onChange, value }) => {
-  const handleYesClicked = useCallback(() => onChange && onChange("yes"), [onChange]);
+  const handleYesClicked = useCallback(() => onChange && onChange("accepted"), [onChange]);
   const handleMaybeClicked = useCallback(() => onChange && onChange("maybe"), [onChange]);
-  const handleNoClicked = useCallback(() => onChange && onChange("no"), [onChange]);
+  const handleNoClicked = useCallback(() => onChange && onChange('declined'), [onChange]);
 
   return (
     <Wrapper>
-      <Button color={green} onClick={handleYesClicked} selected={value === "yes"}>
+      <Button color={green} onClick={handleYesClicked} selected={value === "accepted"}>
         <FeatherIcon icon={CheckCircle} />
         <span>Yes</span>
       </Button>
@@ -47,7 +47,7 @@ export const Rsvp: React.SFC<RsvpProps> = ({ onChange, value }) => {
           <FeatherIcon icon={HelpCircle} />
           <span>Maybe</span>
         </Button>
-        <Button color={red} onClick={handleNoClicked} selected={value === "no"}>
+        <Button color={red} onClick={handleNoClicked} selected={value === "declined"}>
           <FeatherIcon icon={XCircle} />
           <span>No</span>
         </Button>
