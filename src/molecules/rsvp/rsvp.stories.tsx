@@ -1,10 +1,12 @@
 import { storiesOf } from "@storybook/react";
 import React, { useState } from "react";
 
-import { Rsvp, Response } from "./rsvp";
+import { RsvpStatus } from "../..";
+
+import { Rsvp } from "./rsvp";
 
 const SelectableRsvp = () => {
-  const [val, setVal] = useState<Response | null>(null);
+  const [val, setVal] = useState<RsvpStatus | null>(null);
 
   return <Rsvp value={val} onChange={setVal} />;
 };

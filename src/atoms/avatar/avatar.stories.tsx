@@ -1,10 +1,12 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 
-import { Avatar, Status } from "./avatar";
+import { UserStatus } from "../..";
 import { flexSpace } from "../../stories/helpers";
 
-const users: ({ name: string; status: Status })[] = [
+import { Avatar } from "./avatar";
+
+const users: ({ name: string; status: UserStatus })[] = [
   { name: "Grant Andra", status: "not-sent" },
   { name: "Darrel Harold", status: "sent" },
   { name: "Cassandra Rosalind", status: "accepted" },
