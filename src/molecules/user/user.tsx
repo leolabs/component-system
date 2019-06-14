@@ -1,10 +1,11 @@
-import React from "react";
-import { Status, Avatar } from "../../atoms/avatar/avatar";
 import { styled } from "linaria/react";
-import { Typography } from "../../atoms/typography/typography";
+import React from "react";
+import { Trash, Share } from "react-feather";
+
+import { Status, Avatar } from "../../atoms/avatar/avatar";
 import { Button } from "../../atoms/button/button";
 import { FeatherIcon } from "../../atoms/icons/icons";
-import { Trash, Share } from "react-feather";
+import { Typography } from "../../atoms/typography/typography";
 import { ListItem } from "../../layout/list/list";
 import { neutral } from "../../theme/colors/colors";
 
