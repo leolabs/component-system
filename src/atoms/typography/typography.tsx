@@ -10,7 +10,6 @@ export interface TypographyProps {
   element?: React.ComponentType<{ className?: string }> | keyof ReactHTML;
   style?: any;
   variant: Variant;
-  as?: string;
 }
 
 export interface TypographyDefinition {
@@ -151,7 +150,6 @@ export const Typography: React.SFC<TypographyProps> = ({
   color,
   element,
   variant,
-  as,
   ...rest
 }) => {
   const definition = definitions[variant];
@@ -168,5 +166,5 @@ export const Typography: React.SFC<TypographyProps> = ({
     props.style = { ...props.style, color };
   }
 
-  return React.createElement(as || element || definition.element, props, children);
+  return React.createElement(element || definition.element, props, children);
 };
