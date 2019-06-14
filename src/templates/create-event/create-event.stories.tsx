@@ -14,6 +14,7 @@ import { Button } from "../../atoms/button/button";
 import { Overlay } from "../../layout/overlay/overlay";
 import { Stepper } from "../../molecules/stepper/stepper";
 import { noMargin } from "../../stories/helpers";
+import { action } from "@storybook/addon-actions";
 
 const EndTime: React.SFC = () => {
   const [enabled, setEnabled] = useState(false);
@@ -58,7 +59,7 @@ storiesOf("Templates / Create Event", module)
         </FormField>
       </Form>
       <Overlay>
-        <Stepper step={1} maxStep={3} />
+        <Stepper step={1} maxStep={3} onChange={action("step-change")} />
       </Overlay>
     </ContentWrapper>
   ));
