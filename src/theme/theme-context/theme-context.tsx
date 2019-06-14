@@ -13,7 +13,7 @@ const themeCss = css`
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 `;
 
-const createVariables = (color: Color): { [k: string]: string } =>
+export const createVariables = (color: Color): { [k: string]: string } =>
   Object.keys(color).reduce((acc, cur) => {
     acc[`--color-${cur}`] = color[cur];
     return acc;

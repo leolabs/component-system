@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "linaria/react";
 
 import { Color, neutral } from "../../theme/colors/colors";
+import { createVariables } from "../../theme/theme-context/theme-context";
 
 export interface WellProps {
   className?: string;
@@ -9,7 +10,7 @@ export interface WellProps {
   primary?: boolean;
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<WellProps & { style: Record<string, string> }>`
   border-radius: 2rem;
   padding: 1.5rem 2rem;
 
@@ -22,7 +23,12 @@ const Wrapper = styled.div`
 `;
 
 export const Well: React.FC<WellProps> = ({ children, className, color, primary }) => (
-  <Wrapper className={className} color={color} primary={primary}>
+  <Wrapper
+    className={className}
+    color={color}
+    primary={primary}
+    style={color ? createVariables(color) : {}}
+  >
     {children}
   </Wrapper>
 );
