@@ -103,6 +103,16 @@ export interface PseudoPickProps extends ComponentProps<"input"> {
 
 const stopClickBubble = (e: React.MouseEvent) => "chrome" in window || e.preventDefault();
 
+const needsSpecialDesktop = !("ontouchstart" in window);
+const supportsInputType = (type: string) => {
+  if (type === "time" && needsSpecialDesktop) {
+    return false;
+  }
+  const input = document.createElement("input");
+  input.setAttribute("type", type);
+  return input.type == type;
+};
+
 const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange, ...cProps }) => {
   const supported = useMemo(() => supportsInputType(type), [type]);
 
@@ -153,16 +163,6 @@ const PseudoPick: React.SFC<PseudoPickProps> = ({ value, repr, type, onChange, .
 };
 
 const pad = (val: number) => (val < 10 ? "0" + String(val) : String(val));
-
-const needsSpecialDesktop = !("ontouchstart" in window);
-const supportsInputType = (type: string) => {
-  if (type === "time" && needsSpecialDesktop) {
-    return false;
-  }
-  const input = document.createElement("input");
-  input.setAttribute("type", type);
-  return input.type == type;
-};
 
 export const DatetimePicker: React.SFC<DatetimePickerProps> = ({ value, onDateChange, id }) => {
   const d = value || new Date();
