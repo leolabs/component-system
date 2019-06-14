@@ -5,17 +5,47 @@ import { Button } from "../../atoms/button/button";
 import { Color, neutral } from "../../theme/colors/colors";
 import { shortTime } from "../../theme/timing/timing";
 
+/** Props for the ButtonInput. */
 export interface ButtonInputProps {
+  /**
+   * Whether the form can be submitted.
+   *
+   * This disables the button while leaving the input intact.
+   * Used for validation.
+   */
   canSubmit?: boolean;
+
+  /** A CSS class name that is passed through to the root element. */
   className?: string;
+
+  /**
+   * The color to use as border / button color.
+   *
+   * Taken from the current theme, if not specified otherwise.
+   */
   color?: Color;
+
+  /**
+   * Whether the form is disabled.
+   */
   disabled?: boolean;
+
+  /** The icon to show on the button. */
   icon: React.ReactNode;
+
+  /** The input placeholder text. */
   placeholder?: string;
+
+  /** The input's value. */
   value?: string;
+
+  /** The input's type. */
   type?: string;
 
+  /** Fired when the input value changes. */
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+
+  /** Fired on button click. */
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 
@@ -62,6 +92,9 @@ const Input = styled.input`
   }
 `;
 
+/**
+ * A form consisting of a single-line input with a submit button.
+ */
 export const ButtonInput: React.SFC<ButtonInputProps> = ({
   canSubmit,
   className,
