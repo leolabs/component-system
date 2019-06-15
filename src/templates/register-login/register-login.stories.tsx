@@ -14,8 +14,8 @@ import { Jumbo } from "../../molecules/jumbo/jumbo";
 import { noMargin } from "../../stories/helpers";
 import { indigo } from "../../theme/colors/colors";
 
-import Apple from "./Apple.svg";
-import Google from "./Google.svg";
+import Apple from "./apple.svg";
+import Google from "./google.svg";
 
 export interface RegisterLoginProps {
   onSignInWithApple?: React.MouseEventHandler;
